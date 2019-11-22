@@ -1,0 +1,254 @@
+<h1>HTML基础语法 3</h1>
+
+
+<h2>文本框</h2>
+注意，属性都是可以逐个移除，逐个添加的，互相之间不影响。
+<br>
+<input type="text" size="30" value="文本框的初始值就是我。">
+<br><br>
+
+注意上面的初始值当用户点击文本框的时候并不会消失，点击文本框后光标默认在初始值的后面。
+<br>如果仅仅是想要添加提示--点击文本框输入文字，提示文字就消失，就需要使用placeholder。placeholder是一个html5的属性，对于大多数的已经支持html5的浏览器来说，是可以看到效果的，但是对于老的不支持html5的浏览器，比如ie8，就看不到效果。
+<br>
+<input type="text" size="60" placeholder="如果你开始在这里输入文字，我就会不见了。">
+<br><br>
+
+
+<h2>密码框</h2>
+与文本框的区别就在于，输入的文字都会变成点点，不可见，起到保密的作用。
+<input type="password">
+<br><br>
+
+
+
+<h2>表单</h2>
+
+action="/study/login.jsp" 表示把账号和密码提交到login.jsp这个页面去。
+跳转到下一个页面就会看到自己的账号密码。再后退，发现账号一栏还有输入的文字，但是密码一栏已经被清空了。
+<form action="https://how2j.cn/study/login.jsp">
+账号：<input type="text" name="name"> <br/>
+密码：<input type="password" name="password" > <br/>
+<input type="submit" value="登陆">
+</form>
+<br>
+
+
+<h3>get</h3>
+使用method="get" 提交数据 是常用的提交数据的方式
+如果form元素没有提供method属性，默认就是get方式提交数据
+get方式的一个特点就是，可以在浏览器的地址栏看到提交的参数，即便是密码也看得到
+
+<form method="get" action="https://how2j.cn/study/login.jsp">
+账号：<input type="text" name="name"> <br/>
+密码：<input type="password" name="password" > <br/>
+<input type="submit" value="登陆">
+</form>
+<br>
+
+
+<h3>post</h3>
+使用method="post" 也可以提交数据
+post不会在地址栏显示提交的参数
+如果要提交二进制数据，比如上传文件，必须采用post方式
+
+<form method="post" action="https://how2j.cn/study/login.jsp">
+账号：<input type="text" name="name"> <br/>
+密码：<input type="password" name="password" > <br/>
+<input type="submit" value="登陆">
+</form>
+<br>
+
+
+<h3>get和post的区别</h3>
+<b>get</b>
+是form默认的提交方式。<br>
+如果通过一个超链访问某个地址，是get方式。<br>
+如果在地址栏直接输入某个地址，是get方式。<br>
+提交数据会在浏览器显示出来。<br>
+不可以用于提交二进制数据，比如上传文件。<br>
+<br>
+<b>post</b>
+必须在form上通过 method="post" 显示指定。<br>
+提交数据不会在浏览器显示出来。<br>
+可以用于提交二进制数据，比如上传文件。<br>
+
+<br><br>
+
+
+
+<h2>单选框</h2>
+<h3>假单选</h3>
+下面这两个随便怎么选，不会互相干扰。
+<br>
+<input type="radio" >晚安
+<input type="radio" >我不好 
+<br><br>
+
+<h3>默认选中</h3>
+还可以默认选中一个选项。
+<input type="radio" checked="checked" >默认选中 
+<br><br>
+
+<h3>实现真单选</h3>
+要实现真的单选，那么就要统一取个名字，这样才知道它们是一组的。
+<p>你最喜欢张艺兴的哪一首歌？</p>
+<input type="radio" name="activity" value="晚安" > 晚安
+<br/>
+<input type="radio" checked="checked"  name="activity" value="我不好" > 我不好<br/>
+<input type="radio" name="activity" value="honey" > honey
+<br/>
+<input type="radio" name="activity"  value="bad"> bad 
+<br/>
+<br/>
+<br/>
+
+
+
+
+<h2>复选框</h2>
+复选框是不需要选名字的。
+<p>你最喜欢张艺兴的哪一首歌？</p>
+<input type="checkbox"  value="晚安" > 晚安
+<br/>
+<input type="checkbox" checked="checked"  value="我不好" > 我不好<br/>
+<input type="checkbox"  value="honey" > honey
+<br/>
+<input type="checkbox"  value="bad"> bad 
+<br/>
+<br/>
+<br/>
+
+
+
+
+<h2>下拉列表</h2>
+<h3>基本操作</h3>
+<select >
+ <option > give me a chance</option>
+ <option > lay u down</option>
+ <option > peach</option>
+</select>
+<br/>
+
+<h3>同时显示多个条目</h3>
+<select size = "2">
+ <option > give me a chance</option>
+ <option > lay u down</option>
+ <option > peach</option>
+</select>
+<br/>
+
+<h3>长按shift 允许多选</h3>
+<select size = "3" multiple = "multiple">
+ <option > give me a chance</option>
+ <option > lay u down</option>
+ <option > peach</option>
+</select>
+<br/>
+
+<h3>默认选中 + 长按shift 允许多选</h3>
+<select size = "3" multiple = "multiple">
+ <option > give me a chance</option>
+ <option selected = "selected"> lay u down</option>
+ <option selected = "selected"> peach</option>
+</select>
+<br/><br/><br/>
+
+
+
+
+<h2>文本域</h2>
+多行的文本框而已。
+<br>
+<textarea>
+abc
+def
+</textarea>
+<br><br>
+
+
+设置文本域的长宽。我们可以看到这样的长宽是被严格限定了，如果文本一行放不下，它会自动换行显示。
+<br>
+<textarea cols="20" rows="8">
+123456789012345678901234567890
+1234567890
+1234567890
+1234567890
+1234567890
+1234567890
+1234567890
+1234567890</textarea>
+<br><br><br>
+
+
+
+<h2>普通按钮</h2>
+普通按钮不能提交<br>
+<input type="button" value="一个按钮">
+<br><br>
+
+你看点击下面的按钮，就一点反应都没有。
+<br>
+<form action="/study/login.jsp" method="get">
+账号：<input type="text" name="name"> <br/>
+密码：<input type="password" name="password" > <br/>
+<input type="button" value="登陆">
+</form>
+<br/><br/><br/>
+
+
+
+
+<h2>提交按钮</h2>
+那么应该使用什么呢？其实这个答案在这一篇前面的地方已经出现过了，用submit
+<br>
+<form action="https://how2j.cn/study/login.jsp" method="get">
+账号：<input type="text" name="name"> <br/>
+密码：<input type="password" name="password" > <br/>
+<input type="submit" value="登陆">
+</form>
+<br/><br/><br/>
+
+
+
+
+<h2>重置按钮</h2>
+点击一下，清空输入的所有内容。
+<form action="https://how2j.cn/study/login.jsp">
+账号：<input type="text" name="name"> <br/>
+密码：<input type="password" name="password" > <br/>
+<input type="submit" value="提交">
+<input type="reset" value="重置">
+</form>
+<br/><br/><br/>
+
+
+
+
+<h2>重置按钮</h2>
+<form action="https://how2j.cn/study/login.jsp">
+账号：<input type="text" name="name"> <br/>
+密码：<input type="password" name="password" > <br/>
+<input type="image" src="https://how2j.cn/example.gif" title = "点击图片提交账号密码">
+</form>
+<br/><br/><br/>
+
+
+
+
+<h2>按钮 button</h2>
+按钮可以是文字。（之前的按钮都是“input”，这一节是button。）
+<form action="https://how2j.cn/study/login.jsp">
+账号：<input type="text" name="name"> <br/>
+密码：<input type="password" name="password" > <br/>
+<button type="submit">登陆</button>
+</form>
+<br>
+
+按钮也可以是图片。
+<form action="https://how2j.cn/study/login.jsp">
+账号：<input type="text" name="name"> <br/>
+密码：<input type="password" name="password" > <br/>
+<button type = "submit"><img src="https://how2j.cn/example.gif"/></button>
+<br><br>
+
