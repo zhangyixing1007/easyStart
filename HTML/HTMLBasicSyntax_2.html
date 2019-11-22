@@ -1,0 +1,475 @@
+<h1>HTML基础语法 2</h1>
+
+<h2>插入图片</h2>
+
+<h3>插入网上的图片</h3>
+<img src="https://how2j.cn/example.gif"/>
+
+<h3>插入本地图片</h3>
+
+<p>图片与html文件在一个文件夹下</p>
+<img src = "example.gif"/>
+
+<p>图片在html文件的上级文件夹中</p>
+<img src = "../example.gif"/>
+
+<p>图片在html文件的上上级文件夹中</p>
+<img src = "../../example.gif"/>
+
+<p>图片的绝对路径，注意路径开头！</p>
+<img src = "file://c:/example.gif"/>
+
+<h3>设置图片大小</h3>
+<p>如果设置的大小比原图片大，则会产生失真效果。</p>
+<img width="200" height="200" src="https://how2j.cn/example.gif"/>
+
+
+
+<h3>设置图片位置</h3>
+左边 left
+<div align="left">
+  <img src="https://how2j.cn/example.gif"/>
+</div>
+
+中间 center
+<div align="center">
+  <img src="https://how2j.cn/example.gif"/>
+</div>
+
+右边 right
+<div align="right">
+  <img src="https://how2j.cn/example.gif"/>
+</div>
+
+
+<h3>图片缺失时的提示语：alt</h3>
+当图片存在时，提示语不可见:
+<br>
+<img src="https://how2j.cn/example.gif" alt="这个是一个图片" />
+ 
+<br/>
+当图片不存在，提示语出现:
+<br>
+<img src="https://how2j.cn/example_not_exist.gif" alt="这个是一个图片" />
+<br><br><br>
+
+
+
+<h2>超链接</h2>
+在原页面打开超链接。
+<br>
+<a href="http://www.12306.cn">12306</a>
+<br><br>
+
+在新页面打开超链接。
+<br>
+<a href="http://www.12306.cn" target="_blank">12306</a>
+<br><br>
+
+超链接的提示语，把鼠标放在超链接上就会显示。
+<br>
+<a href="http://www.12306.cn" title="跳转到http://www.12306.com">www.12306.com</a>
+<br><br>
+
+图片作为超链接入口，同样可以在新页面打开，添加提示语。
+<br>
+<a href="http://www.12306.cn" target="_blank" title="跳转到http://www.12306.com">
+<img src="https://how2j.cn/example.gif"/>
+</a>
+<br><br>
+
+
+
+
+
+<h2>表格</h2>
+
+<h3>基本格式</h3>
+<p>tr： table row 一行</p>
+<p>td：table data 一列</p>
+以下是3行2列的表格，无边框。
+<table>
+  <tr>
+      <td>1</td>
+      <td>2</td>
+  </tr>
+ 
+  <tr>
+      <td>3</td>
+      <td>4</td>
+  </tr>
+ 
+  <tr>
+      <td>a</td>
+      <td>b</td>
+  </tr>
+ 
+</table>
+
+
+<p>实际上表格的每一行的<strong>列数不一定要一致</strong>，只是这样很丑罢了。</p>
+
+<table>
+  <tr>
+      <td>1</td>
+      <td>2</td>
+  </tr>
+ 
+  <tr>
+      <td>3</td>
+      <td>4</td>
+  </tr>
+ 
+  <tr>
+      <td>第三行第一列。</td>
+      <td>第三行第二列。</td>
+      <td>我就是第三行多出来的那一列。</td>
+  </tr>
+ 
+</table>
+
+
+<h3>有边框的表格</h3>
+增加一个border属性，我们就会得到有边框的表格。
+<br>
+我们可以很明确地得出这样一个结论，这样的表格真是太丑了。。。
+<table border="1">
+  <tr>
+      <td>1</td>
+      <td>2</td>
+  </tr>
+ 
+  <tr>
+      <td>3</td>
+      <td>4</td>
+  </tr>
+ 
+  <tr>
+      <td>a</td>
+      <td>b</td>
+  </tr>
+ 
+</table>
+
+当border这个属性为“0”时，这个表格又变成了没有边框的样子。
+<table border="0">
+  <tr>
+      <td>1</td>
+      <td>2</td>
+  </tr>
+ 
+  <tr>
+      <td>3</td>
+      <td>4</td>
+  </tr>
+ 
+  <tr>
+      <td>a</td>
+      <td>b</td>
+  </tr>
+ 
+</table>
+
+
+
+
+
+<h3>设置表格宽度</h3>
+px = pixel，像素的意思。
+<table border="1" width="200px">
+  <tr>
+      <td>1</td>
+      <td>2</td>
+  </tr>
+ 
+  <tr>
+      <td>3</td>
+      <td>4</td>
+  </tr>
+ 
+  <tr>
+      <td>a</td>
+      <td>b</td>
+  </tr>
+ 
+</table>
+
+
+
+
+
+<h3>设置单元格宽度</h3>
+绝对值
+<table border="1" width="200px">
+  <tr>
+      <td width="50px">1</td>
+      <td>2</td>
+  </tr>
+ 
+  <tr>
+      <td>3</td>
+      <td>4</td>
+  </tr>
+ 
+  <tr>
+      <td>a</td>
+      <td>b</td>
+  </tr>
+ 
+</table>
+
+相对值
+<table border="1" width="200px">
+  <tr>
+      <td width="80%">1</td>
+      <td>2</td>
+  </tr>
+ 
+  <tr>
+      <td>3</td>
+      <td>4</td>
+  </tr>
+ 
+  <tr>
+      <td>a</td>
+      <td>b</td>
+  </tr>
+</table>
+
+
+
+
+<h3>设置单元格对齐标准</h3>
+每一个单元格都可以单独设置。
+
+<table border="1" width="200px">
+  <tr>
+      <td width="50%" align="left">1</td>
+      <td>2</td>
+  </tr>
+ 
+  <tr>
+      <td align="center">3</td>
+      <td>4</td>
+  </tr>
+ 
+  <tr>
+      <td align="right">a</td>
+      <td>b</td>
+  </tr>
+ 
+</table>
+ 
+
+
+不仅可以横着对齐，还可以竖着对齐。
+<table border="1" width="200px">
+  <tr>
+      <td width="50%" valign="top" >1</td>
+      <td>
+             2   <br/>
+             2   <br/>
+             2   <br/>
+      </td>
+  </tr>
+ 
+  <tr>
+      <td valign="middle"  >3</td>
+      <td>
+             4   <br/>
+             4   <br/>
+             4   <br/>
+      </td>
+  </tr>
+ 
+  <tr>
+      <td valign="bottom" >a</td>
+      <td>
+             b   <br/>
+             b   <br/>
+             b   <br/>
+      </td>
+  </tr>
+ 
+</table>
+
+
+
+<h3>合并单元格</h3>
+
+使用colspan合并同一行的两个单元格：多列变成一列。
+
+<table border="1" width="200px">
+  <tr>
+      <td colspan="2" >1，2</td>
+  </tr>
+ 
+  <tr>
+      <td>3</td>
+      <td>4</td>
+  </tr>
+ 
+  <tr>
+      <td>a</td>
+      <td>b</td>
+  </tr>
+ 
+</table>
+
+使用rowspan合并同一列的两个单元格：多行变成一行。
+<table border="1" width="200px">
+  <tr>
+      <td rowspan="2">1,3</td>
+      <td>2</td>
+  </tr>
+ 
+  <tr>
+      <td>4</td>
+  </tr>
+ 
+  <tr>
+      <td>a</td>
+      <td>b</td>
+  </tr>
+ 
+</table>
+<br><br>
+
+
+
+<h3>设置单元格背景色</h3>
+每个单元格都可以不一样。也可以一行为单位设置颜色。
+<table border="1" width="200px">
+  <tr bgcolor="gray">
+      <td width="50%">1</td>
+      <td>2</td>
+  </tr>
+ 
+  <tr>
+      <td>3</td>
+      <td>4</td>
+  </tr>
+ 
+  <tr>
+      <td>a</td>
+      <td  bgcolor="pink">b</td>
+  </tr>
+</table>
+
+也可以整体设置同一个颜色。主要注意观察，把代码写在不一样的地方就行了。
+<table border="1" width="200px" bgcolor = "gray">
+  <tr>
+      <td width="50%">1</td>
+      <td>2</td>
+  </tr>
+ 
+  <tr>
+      <td>3</td>
+      <td>4</td>
+  </tr>
+ 
+  <tr>
+      <td>a</td>
+      <td>b</td>
+  </tr>
+ 
+</table>
+<br><br>
+
+
+
+<h2>列表</h2>
+<h3>无序列表</h3>
+tex中的itemize。
+<ul>
+<li>你好！</li>
+<li>请问你今天吃饭了嘛？</li>
+</ul>
+
+
+<h3>有序列表</h3>
+tex中的enumerate。
+<ol>
+<li>我没吃饭。</li>
+<li>关你什么事？</li>
+</ol>
+<br><br>
+
+
+
+
+<h2>HTML块</h2>
+通常呢会用div还有span。
+<br>
+这没有标签
+<div> 这是一个div </div>
+<span>这是一个span</span>
+
+<br>
+<br>
+<h3>div有什么作用？</h3>
+你看div就可以一次性设定好一整块的位移。
+<br>
+<img style="margin-left:50px" src="https://how2j.cn/example.gif"/>
+  <br/>
+ <img style="margin-left:50px" src="https://how2j.cn/example.gif"/>
+ 
+<div style="margin-left:100px" >
+ <img src="https://how2j.cn/example.gif"/>
+  <br/>
+ <img src="https://how2j.cn/example.gif"/>
+</div>
+<br>
+
+<h3>div和span的区别</h3>
+<p>div是块元素，即自动换行，常见的块元素还有h1,table,p。</p>
+<p>span是内联元素，即不会换行，常见的内联元素还有img,a,b,strong。</p>
+<div>
+ 第一个div
+</div>
+ 
+<div>
+ 第二个div
+</div>
+ 
+<span>
+ 第一个span
+</span>
+ 
+<span>
+ 第二个span
+</span>
+<br><br>
+
+
+
+<h2>字体和字色</h2>
+咱们看看例子就得了。
+<br>
+<font color="green">绿色默认大小字体</font>
+<br>
+<font color="blue" size="+2">蓝色大2号字体</font>
+<br>
+<font color="red" size="-2">红色小2号字体</font>
+<br><br>
+你看还可以精确地设定字体颜色！
+<br>
+<font color="red" >用red表示红色字体</font>
+<br>
+<font color="#ff0000" >用#ff0000表示红色字体</font>
+
+<br>如果你不知道自己想要什么颜色，那么可以在
+<a href = "https://how2j.cn/k/html/html-font/644.html#step2089" target = blank> 字体速查手册</a>
+找一找。
+<br><br>
+
+
+<h2>内联框架</h2>
+iframe相当于浏览器里面有个小浏览器，在这个小浏览器中，打开另一个网页。
+这个小浏览器里的所有内容都是可以点击的！
+<br>
+<iframe src="https://how2j.cn/" width="600px" height="400px">
+</iframe>
+
+
+
