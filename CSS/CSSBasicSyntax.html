@@ -1,0 +1,129 @@
+<h1> CSS基本语法 1 </h1>
+
+css的好处就在于可以<b>批量定义属性</b>。
+<br>
+属性可以单独定义。
+<style>
+p{
+   color:red;
+}
+</style>
+<p>刘海砍樵</p>
+<p>独角戏</p>
+<p>约定</p>
+<p>MYM</p>
+<br>
+
+属性也可以使用的时候再定义。
+<p style="color:red">这是style为红色的</p>
+<p>这是一个没有style的p</p>
+<br><br><br>
+
+
+
+
+<h2>元素选择器</h2>
+<style>
+p{
+  color:red;
+}
+</style>
+ 
+<p>p元素</p>
+<p>p元素</p>
+<p>p元素</p>
+<br><br><br>
+
+
+
+
+<h2>id选择器</h2>
+<style>
+p{
+  color:red;
+}
+#p1{
+  color:blue;
+}
+#p2{
+  color:green;
+}
+</style>
+<p>没有id的p</p>
+<p id="p1">id=p1的p</p>
+<p id="p2">id=p2的p</p>
+<br><br><br>
+
+
+
+
+<h2>类选择器</h2>
+<style>
+.pre{
+  color:blue;
+}
+.after{
+  color:green;
+}
+</style>
+ 
+<p class="pre">前3个，1</p>
+<p class="pre">前3个，2</p>
+<p class="pre">前3个，3</p>
+ 
+<p class="after">后3个，1</p>
+<p class="after">后3个，2</p>
+<p class="after">后3个，3</p>
+
+
+同时根据元素名和class来选择。
+<style>
+ 
+p.blue{
+  color:blue;
+}
+ 
+</style>
+ 
+<p class="blue">class=blue的p</p>
+ 
+<span class="blue">class=blue的span</span>
+<br><br><br>
+
+
+
+
+<h2>css注释方式</h2>
+/*这就是CSS注释方式*/
+<br>
+但是这样直接写还是会显示，因为我们这是在html的环境里面啊。只有写在css中才是css的注释嘛！
+<style>
+/*设置所有的p元素中的内容为红色*/
+p{
+  color:red;
+}
+</style>
+ 
+<p>红色的p</p>
+<br><br><br>
+
+
+
+
+<h2>设置尺寸</h2>
+<style>
+p#percentage{
+  width:50%;
+  height:50%;
+  background-color:pink;
+}
+p#pix{
+  width:180px;
+  height:50px;
+  background-color:green;
+}
+</style>
+ 
+<p id="percentage"> 按比例设置尺寸50%宽 50%高</p>
+ 
+<p id="pix"> 按象素设置尺寸  180px宽 50 px高</p>
