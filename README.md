@@ -1,4 +1,4 @@
-# 快速入门[HTML](https://baike.baidu.com/item/HTML/97049?fr=aladdin)
+# 快速入门[HTML](https://baike.baidu.com/item/HTML/97049?fr=aladdin)/[JavaScript](https://baike.baidu.com/item/javascript)
 
 预计后续还会更新 **快速入门**
 [CSS](https://baike.baidu.com/item/CSS/5457)
@@ -6,8 +6,6 @@
 [Ajax](https://baike.baidu.com/item/ajax/8425)
 、
 [Vue.js](https://baike.baidu.com/item/Vue.js)
-、
-[JavaScript](https://baike.baidu.com/item/javascript)
 、
 [JSON](https://baike.baidu.com/item/JSON)
 等，欢迎star。
@@ -23,14 +21,18 @@
 文本框、密码框、表单、单选框、复选框、下拉列表、文本域、各种按钮。
 
 
+## [JavaScript](https://github.com/zhangyixing1007/easyStart/tree/master/JavaScript)
+* [JavaScriptBasicSyntax_1.html](https://github.com/zhangyixing1007/easyStart/blob/master/JavaScript/JavaScriptBasicSyntax_1.html)
+* [JavaScriptBasicSyntax_2.html](https://github.com/zhangyixing1007/easyStart/blob/master/JavaScript/JavaScriptBasicSyntax_2.html)
+* [JavaScriptBOM.html](https://github.com/zhangyixing1007/easyStart/blob/master/JavaScript/JavaScriptBOM.html)
+
+
 预计后续还会更新 **快速入门**
 [CSS](https://baike.baidu.com/item/CSS/5457)
 、
 [Ajax](https://baike.baidu.com/item/ajax/8425)
 、
 [Vue.js](https://baike.baidu.com/item/Vue.js)
-、
-[JavaScript](https://baike.baidu.com/item/javascript)
 、
 [JSON](https://baike.baidu.com/item/JSON)
 等，欢迎star。
