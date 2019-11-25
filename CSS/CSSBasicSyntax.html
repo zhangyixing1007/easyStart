@@ -127,3 +127,105 @@ p#pix{
 <p id="percentage"> 按比例设置尺寸50%宽 50%高</p>
  
 <p id="pix"> 按象素设置尺寸  180px宽 50 px高</p>
+<br><br>
+
+
+
+
+<h2>属性名</h2>
+<h3>背景颜色</h3>
+<br>
+颜色的值可以采用3种方式
+<br>
+<ol>
+<li>预定义的颜色名字：比如red,gray,white,black,pink，参考颜色速查手册。</li>
+<li>rgb格式：分别代表红绿蓝的比例 rgb(250,0,255) 即表示红色是满的，没有绿色，蓝色是满的，即红色和蓝色混合在一起：紫色</li>
+<li>16进制的表示：#00ff00 等同于 rgb(0,255,0)</li>
+</ol>
+
+以下是例子：
+<style>
+p.gray {background-color: gray;}
+h1 {background-color: transparent}
+h4 {background-color: rgb(250,0,255)}
+h5 {background-color: #00ff00}
+</style>
+ 
+<p class="gray">灰色</p>
+<h1>透明背景，默认即透明背景</h1>
+<h4>紫色</h4>
+<h5>绿色背景</h5>
+
+注意，哪怕h3,h4在定义之前调用，依然会发生作用。
+
+
+
+
+
+<h3>图片做背景</h3>
+<style>
+div#test
+  {
+    background-image:url(/study/background.jpg);
+    width:200px;
+    height:100px;
+  }
+</style>
+ 
+<div id="test">
+  这是一个有背景图的DIV
+</div>
+
+
+
+
+
+<h3>本地测试</h3>
+在本地测试的时候，请先把一个名叫“background”的jpg文件置于html文件同一目录下。
+不要写成 background-image:url(/study/background.jpg);
+而是写成 background-image:url(background.jpg)。
+<style>
+div#test
+  {
+    background-image:url(background.jpg);
+    width:200px;
+    height:100px;
+  }
+</style>
+ 
+<div id="test">
+  这是一个有背景图的DIV
+</div>
+
+
+
+
+<h3>background-repeat属性</h3>
+
+值可以选
+<ul>
+<li>repeat：水平垂直方向都重复</li>
+<li>repeat-x：只有水平方向重复</li>
+<li>repeat-y：只有垂直方向重复</li>
+<li>no-repeat：无重复</li>
+</ul>
+
+
+
+
+<h3>背景平铺</h3>
+<style>
+div#contain
+  {
+    background-image:url(background.jpg);
+    width:200px;
+    height:100px;
+    background-size: contain;
+  }
+</style>
+  
+<div id="contain">
+   背景平铺，通过拉伸实现，会有失真
+</div>
+这里其实没太懂，怎么就拉伸了？我只看见了密铺！
+
