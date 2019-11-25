@@ -1,0 +1,738 @@
+<h1>JavaScript 基础 2</h1>
+<br><br>
+
+
+<h2>JavaScript数字</h2>
+<h3>创建数字对象</h3>
+可以通过new Number()创建一个数字对象。与基本类型的数字不同，对象类型的数字，拥有更多的属性和方法。
+<script>
+ 
+var x = new Number(123);
+ document.write('数字对象x的值:'+x);
+ document.write("<br>");
+ document.write('数字对象x的类型:'+typeof x); //通过typeof 获知这是一个object
+ document.write("<br>");
+var y = 123;
+ document.write('基本类型y的值:'+y);
+ document.write("<br>");
+ document.write('基本类型y的类型:'+typeof y); //通过typeof 获知这是一个number
+ 
+</script>
+<br><br>
+
+
+
+<h3>最小值 最大值</h3>
+<script>
+ 
+ document.write('Number对象的最小值:'+Number.MIN_VALUE);
+ 
+ document.write("<br>");
+ 
+ document.write('Number对象的最大值:'+Number.MAX_VALUE);
+ 
+</script>
+<br><br>
+
+
+
+<h3>NaN</h3>
+NaN(Not a Number),表示不是一个数字
+当通过非数字创建Number的时候，就会得到NaN.
+注意： 不能通过 是否等于Number.NaN来判断 是否 “不是一个数字”，应该使用函数 isNaN()
+<br><br>
+<script>
+function p(s){
+  document.write(s);
+  document.write("<br>");
+}
+ 
+var a = new Number("123abc"); //通过非数字创建Number对象，得到的是一个NaN
+p('通过非数字字符串"123abc"创建出来的Number对象 a的值是：'+a);
+ 
+p('但是, a==Number.NaN会返回:'+(a==Number.NaN)); //即便是一个NaN 也"不等于" Number.NaN
+ 
+p('正确判断是否是NaN的方式是调用isNaN函数:'+isNaN(a)); //正确的方式是通过isNaN() 函数进行判断
+ 
+</script>
+<br><br>
+
+
+
+
+<h3>toFixed() 保留几位小数</h3>
+<script>
+function p(s){
+  document.write(s);
+  document.write("<br>");
+}
+ 
+var a = new Number("123");
+ 
+p("数字对象123通过toFixed(2) 保留两位小数:"+a.toFixed(2)); //保留两位小数点
+ 
+var b = new Number("3.1415926");
+ 
+p("PI 通过toFixed(3) 保留三位小数:"+b.toFixed(3));//保留三位小数点
+ 
+</script>
+<br><br>
+
+
+
+<h3>toExponential() 返回科学计数法表达</h3>
+<script>
+function p(s){
+  document.write(s);
+  document.write("<br>");
+}
+  
+var a = new Number("123");
+  
+p("数字对象123通过toExponential 返回计数法表达 "+a.toExponential ());
+  
+var b = new Number("3.1415926");
+  
+p("数字对象3.1415926通过toExponential 返回计数法表达 "+b.toExponential ());
+  
+</script>
+<br><br>
+
+
+
+<h3>Number() valueOf()生成的对象类型不同</h3>
+<script>
+function p(s){
+  document.write(s);
+  document.write("<br>");
+}
+ 
+var a = new Number("123");
+ 
+var b = a.valueOf();
+ 
+p('数字对象a的类型是：'+typeof a); //返回object
+p('通过valueOf()返回的值的类型是：'+typeof b); //返回number
+ 
+</script>
+<br><br>
+
+
+
+
+
+<h2>JavaScript字符串</h2>
+
+
+<h3>新建字符串</h3>
+<script>
+var x = "5";
+var y = new String(x);
+document.write("变量x的值是:"+x);
+document.write("<br>");
+document.write("变量x的类型是:"+(typeof x));
+document.write("<br>");
+document.write("变量y的值是:"+y);
+document.write("<br>");
+document.write("变量y的类型是:"+(typeof y));
+document.write("<br>");
+</script>
+<br><br>
+
+
+<h3>.length</h3>
+<script>
+ 
+var y = new String("Hello JavaScript");
+ 
+document.write("通过.length属性获取字符串'Hello JavaScript'的长度"+y.length);
+ 
+</script>
+<br><br>
+
+
+<h3>charAt()  charCodeAt()</h3>
+<script>
+  
+var y = new String("Hello JavaScrpt");
+document.write("字符串y的值:"+y);
+document.write("<br>");
+document.write('通过 charAt(0)获取位置0的字符串： '+y.charAt(0)); //返回H
+document.write("<br>");
+document.write('通过 charCodeAt(0)获取位置0的字符的 Unicode码 ：'+y.charCodeAt(0)); //返回H对应的Unicode码 72
+ 
+</script>
+<br><br>
+
+
+
+<h3>x.concat(y) </h3>
+<script>
+ 
+var x = new String("Hello ");
+var y = new String("Javascript");
+ 
+document.write( '字符串x的值: '+x);
+document.write('<br>');
+document.write( '字符串y的值: '+y);
+document.write('<br>');
+document.write( '通过函数concat()把x和y连接起来: ' +  x.concat(y) );
+ 
+</script>
+<br><br>
+
+
+
+<h3>y.indexOf ("a")  y.lastIndexOf ("a")</h3>
+第一次和最后一次某元素出现的位置。
+<script>
+   
+var y = new String("Hello JavaScript");
+document.write( '字符串y的值: '+y);
+document.write('<br>');
+document.write('通过 indexOf ("a")获取子字符"a" 第一次出现的位置 '+y.indexOf ("a"));
+document.write('<br>');
+document.write('通过 lastIndexOf ("a")获取子字符"a" 最后出现的位置 '+y.lastIndexOf ("a"));
+</script>
+<br><br>
+
+
+
+
+<h3>比较两段字符串是否相同 x.localeCompare(y)</h3>
+<ul>
+<li>0：表示相等</li>
+<li>1：表示前者字母顺序靠后</li>
+<li>-1：表示前者字母顺序靠前</li>
+</ul>
+
+
+<script>
+   
+var x = new String("Hello");
+var y = new String("Hello");
+var z = new String("aloha");
+   
+document.write( '字符串x的值: '+x);
+document.write('<br>');
+document.write( '字符串y的值: '+y);
+document.write('<br>');
+document.write( '字符串z的值: '+z);
+document.write('<br>');
+ 
+document.write('通过 localeCompare()判断 x和y是否相等 '+x.localeCompare(y));
+document.write('<br>');
+document.write('通过 localeCompare()判断 x和z是否相等 '+x.localeCompare(z));
+document.write('<br>');
+ 
+document.write('0 表示相等<br>');
+document.write('1 表示字母顺序靠后<br>');
+document.write('-1 表示字母顺序靠前<br>');
+ 
+</script>
+<br><br>
+
+
+
+<h3>x.substring(0,3) 截取子字符串</h3>
+能取到左边，不能取到右边。
+<script>
+   
+var x = new String("Hello JavaScript");
+ document.write( '字符串x的值: '+x);
+document.write('<br>');
+document.write('x.substring (0,3) 获取位0到3的字符串： '+x.substring (0,3) );
+document.write('<br>');
+document.write('左闭右开，取得到0，取不到3');
+ 
+</script>
+<br><br>
+
+
+
+<h3>.split() 分隔字符串</h3>
+<script>
+var x = new String("Hello This Is JavaScript");
+document.write( '字符串x的值: '+x);
+document.write('<br>');
+ 
+var y =  x.split(" ");
+document.write('通过空格分隔split(" "),得到数组'+y);
+document.write("<br>");
+ 
+var z =  x.split(" ",2);
+document.write('通过空格分隔split(" ",2),得到数组，并且只保留前两个'+z);
+  
+</script>
+<br><br>
+
+
+
+
+<h3>replace(substring1,substring2)</h3>
+把substring1替换成substring2。一般默认替换遇到的第一个子字符串，如果要替换所有的这样的子字符串，则需要用到RegExp()。<br>
+<script>
+function p(s){
+  document.write(s);
+  document.write("<br>");
+}
+  
+var x = new String("Hello JavaScript");
+p('这个是原字符串: '+x);
+
+// var y = x.replace("a","o");
+// p('只替换第一个 a:  '+y);
+
+var x2 = new RegExp("a","g");
+var z = x.replace(x2, "o");
+p('替换掉所有的 a:  '+z);
+ 
+</script>
+<br><br>
+
+
+
+
+
+<h3>返回基本类型</h3>
+<script>
+function p(s){
+  document.write(s);
+  document.write("<br>");
+}
+ 
+var x = new String("Hello JavaScript");
+ 
+var temp = x.charAt(0);
+p('charAt返回的值'+temp);
+p('其类型是'+ typeof temp );
+ 
+var temp = x.concat("!!!");
+p('concat返回的值'+temp);
+p('其类型是'+ typeof temp );
+ 
+var temp = x.substring(0,5);
+p('substring返回的值'+temp);
+p('其类型是'+ typeof temp );
+ 
+</script>
+<br><br>
+
+
+
+
+<h2>JavaScript数组</h2>
+
+
+<h3>创建数组对象</h3>
+<script>
+function p(s,v){
+  document.write(s+' '+v);
+  document.write("<br>");
+}
+ 
+var x = new Array(); //创建长度是0的数组
+p('通过 new Array()创建一个空数组:',x);
+x = new Array(5); //创建长度是5的数组,，但是其每一个元素都是undefine
+p('通过 new Array(5)创建一个长度是5的数组:',x);
+p('像new Array(5) 这样没有赋初值的方式创建的数组，每个元素的值都是:',x[0]);
+x = new Array(3,1,4,1,5,9,2,6); //根据参数创建数组
+p('创建有初值的数组new Array(3,1,4,1,5,9,2,6) :',x);
+ 
+</script>
+<br><br>
+
+
+
+
+<h3>x.length 数组长度</h3>
+<script>
+function p(s){
+  document.write(s);
+  document.write("<br>");
+}
+ 
+var x = new Array(3,1,4,1,5,9,2,6); //根据参数创建数组
+p('当前数组是:'+x);
+p('通过.length获取当前数组的长度:'+x.length);
+ 
+</script>
+<br><br>
+
+
+
+<h3>遍历数组</h3>
+不得不说这些for循环跟Java语法的确是一模一样的。<br>
+<script>
+function p(s){
+  document.write(s);
+  document.write("<br>");
+}
+ 
+var x = new Array(3,1,4);
+p('当前数组是:'+x);
+p("使用普通的for循环遍历数组");
+for(i=0;i<x.length;i++){  //普通for循环
+  p(x[i]);
+}
+p("使用增强for循环遍历数组");
+for(i in x){  //for in 循环
+  p(x[i]);
+}
+</script>
+<br><br>
+
+
+
+<h3>x.concat(y) 连接数组</h3>
+<script>
+function p(s){
+  document.write(s);
+  document.write("<br>");
+}
+var x = new Array(3,1,4);
+var y = new Array(1,5,9,2,6);
+p('数组x是:'+x);
+p('数组y是:'+y);
+ 
+var z = x.concat(y);
+p('使用concat连接数组x和y');
+p('数组z是:'+z);
+ 
+</script>
+<br><br>
+
+
+
+<h3>x.join() x.join(@) 返回一个数组的字符串表达</h3>
+<script>
+function p(s){
+  document.write(s);
+  document.write("<br>");
+}
+ 
+var x = new Array(3,1,4);
+p('数组x是:'+x);
+var y = x.join();
+p('y = x.join() 得到的是数组x的字符串表达，其值是'+y+" 其类型是 :" +(typeof y));
+var z = x.join("@");
+p('z = x.join("@");是x的字符串表达，不过分隔符不是默认的"," 而是"@" : '+z);
+ 
+</script>
+<br><br>
+
+
+
+
+<h3>x.push(num) x.pop() 在数组末尾加入和删除数据</h3>
+<script>
+function p(s){
+  document.write(s);
+  document.write("<br>");
+}
+ 
+var x = new Array(3,1,4);
+p('数组x是:'+x);
+ 
+x.push(5);
+p('向x中push 5,得到 ' + x);
+var e = x.pop();
+p('从x中pop一个值出来，其值是 ' + e);
+ 
+p('pop之后，x数组的值是:'+x);
+ 
+</script>
+<br><br>
+
+
+
+<h3>x.unshift(5) x.shift() 在数组开头加入和删除数据</h3>
+<script>
+function p(s){
+  document.write(s);
+  document.write("<br>");
+}
+ 
+var x = new Array(3,1,4);
+p('数组x是:'+x);
+x.unshift (5);
+p('对数组 unshift 值5(在最前面加)，数组变为:' + x);
+var e = x.shift ();
+p('从数组中 shift 一个数(从最前面取)，其值是:' + e);
+p('shift之后，数组变为:' + x);
+</script>
+<br><br>
+
+
+
+<h3>x.sort() 数组排序</h3>
+<script>
+function p(s){
+  document.write(s);
+  document.write("<br>");
+}
+ 
+var x = new Array(3,1,4,1,5,9,2,6);
+p('数组x是:'+x);
+x.sort();
+p('使用sort排序后的数组x是:'+x);
+ 
+</script>
+<br><br>
+
+
+
+<h3>x.sort(comparator) 自定义数组排序方式</h3>
+<script>
+function p(s){
+  document.write(s);
+  document.write("<br>");
+}
+ 
+function comparator(v1,v2){
+   return v2-v1;
+}
+ 
+var x = new Array(3,1,4,1,5,9,2,6);
+p('数组x是:'+x);
+x.sort(comparator);
+p('使用sort 进行自定义倒排序后的数组x是:'+x);
+ 
+</script>
+<br><br>
+
+
+
+
+<h3>x.reverse() 反转数组</h3>
+<script>
+function p(s){
+  document.write(s);
+  document.write("<br>");
+}
+  
+var x = new Array(3,1,4,1,5,9,2,6);
+p('数组x是:'+x);
+x.reverse();
+p('使用reverse()函数进行反转后的值是:'+x);
+ 
+</script>
+<br><br>
+
+
+
+<h3>x.slice() 类似substring 获取子数组</h3>
+<script>
+function p(s){
+  document.write(s);
+  document.write("<br>");
+}
+   
+var x = new Array(3,1,4,1,5,9,2,6);
+p('数组x是:'+x);
+var y = x.slice(1);
+p('x.slice(1)获取的子数组是:'+y);
+var z = x.slice(1,3);
+p('x.slice(1,3)获取的子数组是:'+z);
+p('第二个参数取不到');
+</script>
+<br><br>
+
+
+
+<h3>x.splice() 删除和插入元素</h3>
+<script>
+function p(s){
+  document.write(s);
+  document.write("<br>");
+}
+   
+var x = new Array(3,1,4,1,5,9,2,6);
+p('数组x是:'+x);
+x.splice (3,2);//从位置3开始 ，删除2个元素
+p('x.splice (3,2) 表示从位置3开始 ，删除2个元素:'+x);
+x.splice(3,0,1,5);
+p('x.splice(3,0,1,5) 从位置3开始，删除0个元素，但是插入1和5,最后得到:'+x);
+</script>
+<br><br>
+
+
+
+
+
+
+
+<h2>JavaScript 日期</h2>
+<h3>创建日期对象</h3>
+注意，月份是从0开始算的！
+<script>
+  var d = new Date();
+  document.write('new Date():'+d);
+</script>
+<br><br>
+
+
+<script>
+  var d = new Date();
+  document.write('分别获取年月日: ');
+  document.write(d.getFullYear());
+  document.write("/");
+  document.write(d.getMonth()+1);
+  document.write("/");
+  document.write(d.getDate());
+</script>
+<br><br>
+
+
+<script>
+  var d = new Date();
+  document.write("分别获取时:分:秒:毫秒 ");
+  document.write(d.getHours());
+  document.write(":");
+  document.write(d.getMinutes());
+  document.write(":");
+  document.write(d.getSeconds());
+  document.write(":");
+  document.write(d.getMilliseconds());
+</script>
+<br><br>
+
+
+<script>
+var day=new Date().getDay(); //通过日期对象获取数字形式的星期几
+var weeks = new Array("星期天","星期一","星期二","星期三","星期四","星期五","星期六");
+ 
+document.write("今天是 ： "+weeks[day]);
+  
+</script>
+<br><br>
+
+
+
+<script>
+var time = new Date().getTime();
+document.write("从1970/1/1 08:00:00 到今天的毫秒数： "+ time);
+</script>
+<br><br>
+
+
+<script>
+var d=new Date();
+document.write("修改日期对象的值为世界末日:<br>");
+d.setFullYear(2012);
+d.setMonth(11); //月份是基0的，所以11表示12月
+d.setDate(12);
+ 
+d.setHours(0);
+d.setMinutes(0);
+d.setSeconds(0);
+ 
+document.write(d);
+</script>
+<br><br>
+
+
+
+
+
+
+<h2>JavaScript Math</h2>
+<script>
+ 
+document.write(Math.E);
+document.write("<br>");
+
+document.write(Math.PI);
+document.write("<br>");
+
+document.write(Math.abs(-1));
+document.write("<br>");
+
+document.write(Math.min(1,100));
+document.write("<br>");
+
+document.write(Math.max(1,100));
+document.write("<br>");
+
+document.write(Math.pow(3,3)); //3的立方，即27
+document.write("<br>");
+
+document.write(Math.round(3.4));
+document.write("<br>");
+
+document.write(Math.round(3.5));
+document.write("<br>");
+
+document.write("一个 0-1 之间的随机数：Math.random():");
+document.write(Math.random());
+document.write("<br>");
+
+document.write("10个 5-10 之间的随机数：Math.round(Math.random() *5)+5 ");
+document.write("<br>");
+
+for(i=0;i<10;i++){
+document.write(Math.round(Math.random() *5)+5 ); //5-10之间的随机整数
+document.write("<br>");
+}
+</script>
+<br><br>
+
+
+
+
+<h2>JavaScript 自定义对象</h2>
+<script>
+var hero = new Object();
+hero.name = "盖伦"; //定义一个属性name，并且赋值
+hero.kill = function(){
+  document.write(hero.name + " 正在杀敌" ); //定义一个函数kill
+}
+  
+hero.kill(); //调用函数kill
+  
+</script>
+<br><br>
+
+
+
+<script>
+function Hero(name){
+  this.name = name;
+  this.kill = function(){
+     document.write(this.name + "正在杀敌<br>");
+  }
+}
+ 
+var gareen = new Hero("盖伦");
+gareen.kill();
+ 
+var teemo = new Hero("提莫");
+teemo.kill();
+  
+</script>
+<br><br>
+
+
+<h3>用prototype追加新方法</h3>
+<script>
+function Hero(name){
+  this.name = name;
+  this.kill = function(){
+     document.write(this.name + "正在杀敌<br>");
+  }
+}
+  
+var gareen = new Hero("盖伦");
+gareen.kill();
+  
+var teemo = new Hero("提莫");
+teemo.kill();
+  
+Hero.prototype.keng = function(){
+  document.write(this.name + "正在坑队友<br>");
+}
+  
+gareen.keng();
+teemo.keng();
+  
+</script>
