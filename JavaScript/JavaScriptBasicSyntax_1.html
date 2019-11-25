@@ -1,4 +1,28 @@
-<h1>JavaScript基本语法</h1>
+<h1>JavaScript 基础 1</h1>
+<br><br>
+
+
+
+<h2>Hello</h2>
+
+<script>
+  document.write("Hello Javascript");
+</script>
+<br><br>
+
+
+
+<h2>隐藏/显示文字</h2>
+<button onclick="document.getElementById('text').style.display='none'">隐藏文本</button>
+ 
+<button onclick="document.getElementById('text').style.display='block'">显示文本</button>
+ 
+<p id="text"> 这个是一段可以被javascript隐藏的文本</p>
+<br><br>
+
+
+
+<h2>一般写在header中</h2>
 <html>
   <head>
    <script>
@@ -9,11 +33,11 @@
 <br><br>
 
 
+
+<h2>多段JavaScript逐段显示</h2>
 <script>
    document.write("第一段javascript");
 </script>
-<br>
-
  
 <script>
    document.write("第二段javascript");
@@ -21,7 +45,808 @@
 <br><br>
 
 
+
+
+<h2>使用外部js文件</h2>
 <html>
   <script src="https://how2j.cn/study/hello.js"></script>
 </html>
 <br><br>
+
+
+
+
+<h2>注释方法跟Java一模一样</h2>
+<br><br>
+
+
+
+
+<h2>变量声明</h2>
+可以用var<br>
+<script>
+  var x = 10;
+  document.write("变量x的值:"+x);
+</script>
+<br><br>
+
+也可以不用var<br>
+<script>
+  x = 10;
+  document.write("没有用var声明的变量x的值:"+x);
+</script>
+<br><br>
+
+命名规则和java差不多。
+<ul>
+<li>开头可以用 _$和字母</li>
+<li>其他部分可以用 _$字母或者数字</li>
+</ul>
+<br><br>
+
+
+
+
+<h2>使用alert开始调试</h2>
+alert的效果是很神奇的，它会真的让浏览器弹出东西来。
+<script>
+  x = 10;
+  //alert(1);
+  document.write("没有用var声明的变量x的值:"+x);
+  //alert(2);
+</script>
+还可以使用firefox 或者 console.log()，但是我这会不是特别想去下这些玩意。
+
+https://how2j.cn/k/javascript/javascript-debug/765.html
+<br><br>
+
+
+
+
+<h2>基本数据类型</h2>
+只声明变量但不赋值。
+<br>
+<script>
+  var x; //声明了变量x,但是没有赋值
+  document.write('声明了，但是没有赋值的变量 x: '+x);
+</script>
+<br><br>
+
+接下来我们会看到，所有的变量声明，类型都是在“=”之后决定的。
+<br>
+<b>布尔值</b>
+<br>
+<script>
+  var x=true;
+  var y=false;
+  document.write("布尔值:"+x);
+  document.write("<br>");
+  document.write("布尔值:"+y);
+</script>
+<br><br>
+
+
+<b>数字</b>，可以表示成十进制、八进制、十六进制、浮点数、科学计数法。
+<br>
+<script>
+  var a=10; //十进制
+  var b=012;//第一位是0，表示八进制
+  var c=0xA;//0x开头表示十六进制
+  var d=3.14;//有小数点表示浮点数
+  var e=3.14e2;//使用e的幂表示科学计数法
+  document.write("十进制 10 的值: "+a);
+  document.write("<br>");
+  document.write("八进制 012 的值: "+b);
+  document.write("<br>");
+  document.write("十六进制 0xA 的值: "+c);
+  document.write("<br>");
+  document.write("浮点数 3.14 的值: "+d);
+  document.write("<br>");
+  document.write("科学记数法 3.14e2 的值: "+e);
+  document.write("<br>");
+</script>
+<br><br>
+
+
+<b>引号</b>。单引号的字符串和双引号的字符串比起来也没有啥区别啊。
+<br>
+<script>
+  var x='hello '; //单引号
+  var y="javascript"; //双引号
+  document.write("单引号的字符串:"+x);
+  document.write("<br>");
+  document.write("双引号的字符串:"+y);
+</script>
+<br><br>
+
+
+变量的<b>类型是动态的</b>，当值是整数的时候，就是Number类型，当值是字符串的时候，就是String类型。
+<br>
+<script>
+  var x=10; //Number类型
+  document.write("此时 x的值是 "+x+" 类型是数字");
+  document.write("<br>");
+  x = "hello javascript"; //String类型
+  document.write("此时 x的值是 "+x+" 类型是字符串");
+</script>
+<br><br>
+
+
+使用<b>typeof</b>来进行判断数据类型。
+正是因为变量是动态类型的，所以无法确定当前到底是哪种类型，这个时候，就可以使用typeof来进行判断。
+<br>
+<script>
+  var x;
+  document.write('声明了但是未赋值的时候，类型是： '+typeof x);
+  document.write("<br>");
+  x=5;
+  document.write('赋值为5之后，类型是： '+typeof x);
+  document.write("<br>");
+  x=5.1;
+  document.write('赋值为5.1之后，类型是： '+typeof x);
+  document.write("<br>");
+  x=true;
+  document.write('赋值为true之后，类型是： '+typeof x);
+  document.write("<br>");
+  x="hello";
+  document.write('赋值为hello之后，类型是： '+typeof x);
+</script>
+
+
+
+
+<h2>JavaScript类型转换</h2>
+伪对象概念：javascript是一门很有意思的语言，即便是基本类型，也是伪对象，所以他们都有属性和方法。
+<br>
+查看变量类型和长度。
+<br>
+<script>
+  var a="hello javascript";
+  document.write("变量a的类型是:"+(typeof a));
+  document.write("<br>");
+  document.write("变量a的长度是:"+a.length);
+</script>
+<br><br>
+
+
+
+无论是Number,Boolean还是String都有一个toString方法，用于<b>转换为字符串</b>。
+<br>
+<script>
+  var a=10;
+  document.write("数字 "+a+" 转换为字符串"+a.toString());
+  document.write("<br>");
+ 
+  var b=true;
+  document.write("布尔 "+b+" 转换为字符串"+b.toString());
+  document.write("<br>");
+ 
+  var c="hello javascript";
+  document.write("字符串 "+c+" 转换为字符串 "+c.toString());
+  document.write("<br>");
+ 
+</script>
+<br><br>
+
+
+<b>toString() 数字转字符串，数字的进制转换。</b><br>
+<script>
+  var a=10;
+  document.write('默认模式下，数字10转换为十进制的'+a.toString()); //默认模式，即十进制
+  document.write("<br>");
+ 
+  document.write('基模式下，数字10转换为二进制的'+a.toString(2)); //基模式，二进制
+  document.write("<br>");
+   
+  document.write('基模式下，数字10转换为八进制的'+a.toString(8)); //基模式，八进制
+  document.write("<br>");
+ 
+  document.write('基模式下，数字10转换为十六进制的'+a.toString(16)); //基模式，十六进制
+  document.write("<br>");
+ 
+</script>
+<br><br>
+
+
+<b>parseInt(), parseFloat(), 字符串转化为数字。</b><br>
+<script>
+  document.write("字符串的\"10\"转换为数字的:"+parseInt("10")); //转换整数
+  document.write("<br>");
+  document.write("字符串的\"3.14\"转换为数字的:"+parseFloat("3.14"));//转换浮点数
+  document.write("<br>");
+  document.write("字符串的\"10abc\"转换为数字的:"+parseInt("10abc")); //判断每一位，直到发现不是数字的那一位
+  document.write("<br>");
+  document.write("字符串的\"hello javascript\"转换为数字的:"+parseInt("hello javascript")); //如果完全不包含数字，则返回NaN - Not a Number
+  document.write("<br>");
+   document.write("字符串的\"10abc8\"转换为数字的:"+parseInt("10abc8")); //如果完全不包含数字，则返回NaN - Not a Number
+</script>
+<br>
+注意观察最后一行，末尾的“8”并没有显示呢！
+<br><br>
+
+
+<b>Boolean() 字符串、数字、对象转化为布尔值。</b><br>
+<script>
+  document.write("空字符串''转换为布尔后的值:"+Boolean(""));  //空字符串
+  document.write("<br>");
+  document.write("非空字符'hello javascript '串转换为布尔后的值:"+Boolean("hello javascript"));  //非空字符串
+  document.write("<br>");
+  document.write("数字 0 转换为布尔后的值:"+Boolean(0));  //0
+  document.write("<br>");
+  document.write("数字 3.14 转换为布尔后的值:"+Boolean(3.14)); //非0
+  document.write("<br>");
+  document.write("空对象 null 转换为布尔后的值:"+Boolean(null));  //null
+  document.write("<br>");
+  document.write("非空对象 new Object() 转换为布尔后的值:"+Boolean(new Object()));  //对象存在
+  document.write("<br>");
+</script>
+<br><br>
+
+
+
+
+<b>Number() 字符串、数字、对象转化为数字。</b><br>
+Number() 效果不如parseInt好，有一点非数字的内容就不行了。<br>
+parseInt() 要看情况，如果以数字开头，就会返回开头的合法数字部分，如果以非数字开头，则返回NaN。<br>
+<script>
+  document.write("通过Number() 函数转换字符串'123' 后得到的数字："+Number("123"));   //正常的
+  document.write("<br>");
+  document.write("通过Number() 函数转换字符串'123abc' 后得到的数字："+Number("123abc"));   //包含非数字
+  document.write("<br>");
+  document.write("通过Number() 函数转换字符串'abc123' 后得到的数字："+Number("abc123"));   //包含非数字
+  document.write("<br>");
+ 
+  document.write("通过parseInt() 函数转换字符串'123' 后得到的数字："+parseInt("123"));   //正常的
+  document.write("<br>");
+  document.write("通过parseInt() 函数转换字符串'123abc' 后得到的数字："+parseInt("123abc"));   //包含非数字,返回开头的合法数字部分
+  document.write("<br>");
+  document.write("通过parseInt() 函数转换字符串'abc123' 后得到的数字："+parseInt("abc123"));   //包含非数字,以非数字开头，返回NaN
+  document.write("<br>");
+ 
+</script>
+<br><br>
+
+
+
+
+<b>空对象与字符串的关系。</b><br>
+<script>
+  var a = null;
+  document.write('String(null) 把空对象转换为字符串：'+String(a)); 
+  document.write("<br>"); 
+  document.write('null.toString() 就会报错，所以后面的代码不能执行'); 
+  document.write(a.toString()); 
+  document.write("因为第5行报错，所以这一段文字不会显示"); 
+</script>
+<br><br>
+
+
+
+
+
+<h2>定义函数</h2>
+
+<script>
+function print(){
+  document.write("这一句话是由一个自定义函数打印");
+}
+print();
+</script>
+<br><br>
+
+
+<b>函数可以接收参数。</b><br>
+<script>
+function print(message){
+  document.write(message);
+}
+print("第一句话");
+print("<br>");
+print("第二句话");
+</script>
+<br><br>
+
+
+<b>函数可以返回值。</b><br>
+<script>
+function print(message){
+  document.write(message);
+}
+ 
+function calc(x,y){
+  return x+y;
+}
+ 
+var sum = calc(500,20);
+print(sum);
+ 
+</script>
+<br><br>
+
+
+
+
+
+<h2>从元素中取值放值</h2>
+
+<script>
+function get(){
+  var value = document.getElementById("num1").value;
+  document.getElementById("result").value="从num1中取到的值:"+value;
+}
+</script>
+ 
+<input type="text" id="num1" value="1">
+<br>
+<input type="text" id="result" value="">
+<br>
+<input type="button" value="取值" onclick="get()" >
+<br><br>
+
+
+
+
+<h2>JavaScript作用域</h2>
+<script>
+ 
+function f1(a){
+   document.write('参数的作用域在函数以内，其值是 '+a+'。<br>');//参数a的作用范围，所以打印出来是5；
+}
+ 
+function f2(){
+   document.write('在函数里不能访问其他函数的参数'+a+'。<br>'); //不在参数a的作用范围，是一个未声明的变量，无法打印
+}
+ 
+f1(5);
+f2();
+document.write('在函数外也不能访问'+a+'。<br>');//也不在参数a的作用范围，是一个未声明的变量，无法打印
+ 
+</script>
+<br><br>
+
+
+
+
+<script>
+var a = 0; //定义在函数前面，即全局变量，所有函数都可以访问
+ 
+function f1(){
+  document.write('通过函数f1 设置全局变量a的值 为 5');
+  a = 5; //能够访问
+}
+ 
+function f2(){
+  document.write('通过函数f2 访问并打印全局变量a的值 '+a); //能够访问
+}
+ 
+f1(); //通过f1，设置a的值
+document.write('<br>');
+f2(); //通过f2,  打印a的值
+</script>
+<br><br>
+
+
+
+
+<h2>JavaScript事件</h2>
+<script>
+function showHello(){
+   alert("Hello JavaScript");
+}
+</script>
+ 
+<button onclick="showHello()">点击一下</button>
+
+
+
+
+
+
+<h2>JavaScript算数运算符</h2>
+<script>
+function p(s){
+ document.write(s);
+ document.write("<br>");
+}
+ 
+p("1+2="+ (1+2));
+p("5-3="+ (5-3));
+p("3*2="+ (3*2));
+p("9/3="+ (9/3));
+p("10%3="+ (10%3));
+ 
+</script>
+<br><br>
+
+
+
+<script>
+ 
+var a = 5;
+document.write('a++ 是先取值，再运算，所以打印出来是：'+a++); //先取值 ，即5
+ 
+document.write("<br>");
+var b = 5;
+document.write('++b 是先运算，再取值，所以打印出来是：'+ ++b); //先运算，再取值，即6
+ 
+</script>
+<br><br>
+
+
+
+<script>
+   x = 5;
+   x+= 6;
+   document.write('x+=6就是 x=x+6的意思，所以最后的值就等于: '+x);
+</script>
+<br><br>
+
+
+
+<script>
+document.write('当+两边都是数字的时候，+就是加法运算符，所以1+2='+(1+2));
+document.write("<br>");
+document.write('当+任意一边是字符串的时候，+就是字符串连接符，所以1+\"2\"='+ (1+"2"));
+</script>
+<br><br>
+
+
+
+
+<h2>JavaScript逻辑运算符</h2>
+
+
+<script>
+function p(s){
+  document.write(s);
+  document.write("<br>");
+}
+ 
+p("1==2: "+(1==2));
+p("1!=2: "+(1!=2));
+p("1>2: "+(1>2));
+p("1<2: "+(1<2));
+p("1>=2: "+(1>=2));
+ 
+</script>
+<br><br>
+
+
+<b>值相等，类型不一定相等，是不是很有趣？</b><br>
+<script>
+function p(s){
+  document.write(s);
+  document.write("<br>");
+}
+ 
+p("1=='1': "+(1=='1'));
+p("1==='1': "+(1==='1'));
+ 
+</script>
+<br><br>
+
+
+<b>三目运算符</b><br>
+<script>
+ 
+var age = 15;
+ 
+var movie = age<18?"卡通":"你懂的";
+ 
+document.write('使用?: 三相运算法进行判断。 <br>');
+document.write('age<18?"卡通":"你懂的" <br>表示当年纪小于18的时候，就看卡通，否则就看 你懂得<br>');
+ 
+document.write('而age变量的值是15，所以返回 '+movie);
+ 
+</script>
+<br><br>
+
+
+
+
+<h2>JavaScript条件语句</h2>
+<b>if</b><br>
+<script>
+ 
+var age = 15;
+ 
+if(age<18){
+   document.write("如果年纪小于18，就看 卡通");
+}
+</script>
+<br><br>
+
+
+<b>if / else</b><br>
+<script>
+ 
+var age = 22;
+ 
+if(age<18){
+   document.write("年纪小于18就看卡通");
+}
+else{
+   document.write("否则就看 你懂的");
+}
+</script>
+<br><br>
+
+
+
+<b>if / else / else if</b><br>
+<script>
+ 
+var age = 20;
+ 
+if(age<18){
+   document.write("小于18就看 卡通");
+}
+else if(age<22){
+   document.write("大于等于18，并且小于22，就看 你懂的");
+}
+else{
+   document.write("大于等于22就看 新闻联播");
+}
+</script>
+<br><br>
+
+
+
+
+<b>switch</b><br>
+<script>
+var day=new Date().getDay(); //通过日期对象获取数字形式的星期几
+var today;
+switch (day)
+{
+case 0:
+  today="星期天";
+  break;
+case 1:
+  today="星期一";
+  break;
+case 2:
+  today="星期二";
+  break;
+case 3:
+  today="星期三";
+  break;
+case 4:
+ today="星期四";
+  break;
+case 5:
+  today="星期五";
+  break;
+case 6:
+  today="星期六";
+  break;
+}
+ 
+document.write("今天是 ： "+today);
+ 
+</script>
+<br><br>
+
+
+
+<h2>JavaScript循环语句</h2>
+<b>for</b>
+<script>
+function p(s){
+  document.write(s);
+  document.write("<br>");
+}
+ 
+document.write("使用for循环打印 0 到 4<br>");
+ 
+for(var i=0;i<5;i++){
+  p(i);
+}
+ 
+</script>
+<br><br>
+
+
+<b>while</b>
+<script>
+document.write("使用while循环打印 0 到 4<br>");
+function p(s){
+  document.write(s);
+  document.write("<br>");
+}
+ 
+var i = 0;
+while(i<5){
+  p(i);
+  i++;
+}
+ 
+</script>
+<br><br>
+
+<b>do-while至少执行一次。</b>进行循环的时候，一定要设置好自增和结束条件，否则会导致无限循环，浏览器直接挂掉。我已经被坑了很多次了。
+<script>
+function p(s){
+  document.write(s);
+  document.write("<br>");
+}
+document.write("使用do-while循环打印 0 到 4<br>");
+var i = 0;
+ 
+do{
+ p(i);
+ i++;
+} while(i<5);
+ 
+</script>
+<br><br>
+
+
+<b>continue;</b><br>
+<script>
+function p(s){
+  document.write(s);
+  document.write("<br>");
+}
+  
+document.write("使用for循环打印 0 到 4<br>如果发现是3，就<span style='color:red'>放弃本次循环，并且进入下一次</span>循环<br>");
+  
+for(i=0;i<5;i++){
+  if(i==3)
+    continue;
+  p(i);
+}
+  
+</script>
+<br><br>
+
+
+<b>break;</b><br>
+<script>
+function p(s){
+  document.write(s);
+  document.write("<br>");
+}
+   
+document.write("使用for循环打印 0 到 4<br>如果发现是3，就<span style='color:red'>终止循环，循环体结束 </span><br>");
+   
+for(i=0;i<5;i++){
+  if(i==3)
+    break;
+  p(i);
+}
+   
+</script>
+<br><br>
+
+
+
+
+
+<h2>错误处理</h2>
+这里如果依然用f2进行测试，那么我们之前的f2已经定义过了。它们会连成一片的，所以我们得用新的函数名称才行啊。例如说f3，f4。<br><br>
+
+<script>
+document.write("试图调用不存在的函数fun2()就会报错，并且导致javascript中止执行，后面的代码也不会执行了<br>");
+ 
+function fun1(){
+  //函数fun1是存在的
+}
+fun2();  //调用不存在的函数fun2();
+document.write("<br>剩下的代码");
+</script>
+<br>
+
+
+<script>
+function fun1(){
+  //函数fun1是存在的
+}
+try{
+   document.write("试图调用不存在的函数fun2()<br>");
+    fun2();  //调用不存在的函数fun2();
+}
+catch(err){
+   document.write("捕捉到错误产生 : ");
+    document.write(err.message);
+}
+ 
+document.write("<p>因为错误被捕捉了，所以后续的代码能够继续执行</p>");
+</script>
+<br><br>
+
+
+
+
+
+<h2>一次综合练习</h2>
+<style>
+table{
+ border-collapse:collapse;
+}
+td{
+  border:1px silver solid;
+  padding: 5px;
+  font-size:12px;
+}
+input{
+  width:180px;
+}
+</style>
+<script>
+/*取幂函数*/
+function p(base, power){
+	if(1==power)
+	   return base
+	if(0==power)
+	   return 1;
+	var result = base;
+	for(var i = 0; i<power-1; i++){
+		result = result*base;
+	}
+	return result;
+}
+
+/*取复利*/
+function fuli(rate, year){
+	var result = 0;
+	for(var i=year;i>0;i--){
+	  result+=p(rate,i);
+	}
+	return result;
+}
+
+function calc(){
+	var initMoney= getNumberValue("initMoney");
+	var rate= getNumberValue("rate") +0.0;
+	var year= getNumberValue("year");
+	var each= getNumberValue("each");
+	var sum1 = (year-1)*each+initMoney;
+	var sum3=each* fuli(  (1+rate/100),(year-1)) + initMoney*p( (1+rate/100) ,year);
+	
+	var sum2 = sum3-sum1;
+	setValue("sum1",sum1);
+	setValue("sum2",sum2);
+	setValue("sum3",sum3);
+}
+
+function setValue(id,value){
+	document.getElementById(id).value=value;
+}
+
+function getNumberValue(id){
+	return parseFloat(document.getElementById(id).value);
+}
+</script>
+<table>
+<tr>
+  <td>起始资金</td>
+  <td><input type="text" id="initMoney" value='10000'> ￥</td>
+<tr>
+  <td>每年收益</td>
+  <td><input type="text" id="rate" value='5'> %</td>
+</tr>
+<tr>
+  <td>复利年数</td>
+  <td><input type="text" id="year" value='10'> 年</td>
+</tr>
+<tr>
+  <td>每年追加资金</td>
+  <td><input type="text" id="each" value='10000'> ￥</td>
+</tr>
+<tr>
+   <td colspan="2" align="center"><input type="button" value="计算" onclick="calc()"></td>
+</tr>
+<tr>
+  <td>本金和</td>
+  <td><input type="text" id="sum1" disabled="disabled"  value='0'> ￥</td>
+</tr>
+<tr>
+  <td>利息和</td>
+  <td><input type="text" id="sum2"  disabled="disabled" value='0'> ￥</td>
+</tr>
+<tr>
+  <td>本息和</td>
+  <td><input type="text" id="sum3"  disabled="disabled" value='0'> ￥</td>
+</tr>
+</table>
