@@ -12,3 +12,334 @@ BOM即 浏览器对象模型(Browser Object Model)。
 <li>History(访问历史)</li>
 <li>Location(浏览器地址)</li>
 </ul>
+<br><br>
+
+
+
+
+<h2>JavaScript Window 窗口</h2>
+<h3>window.innerWidth window.innerHeight</h3>
+<script>
+  document.write("文档内容");
+  document.write("文档显示区域的宽度"+window.innerWidth);
+  document.write("<br>");
+  document.write("文档显示区域的高度"+window.innerHeight);
+</script>
+<br><br>
+
+
+
+
+<h3>window.outerWidth window.outerHeight</h3>
+<script>
+ 
+  document.write("浏览器的宽度:"+window.outerWidth);
+  document.write("<br>");
+  document.write("浏览器的高度:"+window.outerHeight);
+ 
+</script>
+<br><br>
+
+
+
+
+<h3>window.open("/")</h3>
+<script>
+function openNewWindow(){
+  //myWindow=window.open("/"); //open the directory of C:/
+  myWindow=window.open(); // open a blank page
+}
+</script>
+  
+<button onclick="openNewWindow()">打开一个新的窗口</button>
+<br><br>
+
+
+
+
+
+<h2>JavaScript Navigator 浏览器对象</h2>
+<script type="text/javascript">
+document.write("<p>浏览器产品名称：");
+document.write(navigator.appName + "</p>");
+ 
+document.write("<p>浏览器版本号：");
+document.write(navigator.appVersion + "</p>");
+ 
+document.write("<p>浏览器内部代码：");
+document.write(navigator.appCodeName + "</p>");
+ 
+document.write("<p>操作系统：");
+document.write(navigator.platform + "</p>");
+ 
+document.write("<p>是否启用Cookies：");
+document.write(navigator.cookieEnabled + "</p>");
+ 
+document.write("<p>浏览器的用户代理报头：");
+document.write(navigator.userAgent + "</p>");
+</script>
+<br><br>
+
+
+
+
+<h2>JavaScript Screen 客户端屏幕</h2>
+<html>
+<body>
+<script type="text/javascript">
+document.write("用户的屏幕分辨率: ")
+document.write(screen.width + "*" + screen.height)
+document.write("<br />")
+document.write("可用区域大小: ")
+document.write(screen.availWidth + "*" + screen.availHeight)
+document.write("<br />")
+</script>
+</body>
+</html>
+<br><br>
+
+
+
+
+
+<h2>JavaScript History  访问历史</h2>
+
+
+<script>
+function goBack()
+  {
+     history.back();
+  }
+</script>
+ 
+<button onclick="goBack()">返回</button>
+<br><br>
+
+
+<script>
+function goBack()
+  {
+     history.go(-2); //-1表示上次，-2表示上上次，以次类推
+  }
+</script>
+ 
+<button onclick="goBack()">返回上上次</button>
+
+
+
+
+
+
+<h2>JavaScript  Location 浏览器中的地址栏</h2>
+
+<h3>JavaScript  Location 刷新页面</h3>
+<span>当前时间:</span>
+<script>
+  var d = new Date();
+  document.write(d.getHours());
+  document.write(":");
+  document.write(d.getMinutes());
+  document.write(":");
+  document.write(d.getSeconds());
+  document.write(":");
+  document.write(d.getMilliseconds());
+ 
+function refresh(){
+  location.reload();
+}
+</script>
+ 
+<br>
+<button onclick="refresh()">刷新当前页面</button>
+<br><br>
+
+
+
+
+<h3>JavaScript  Location 跳转页面</h3>
+<script>
+function jump(){
+  //方法1
+  //location="/";
+ 
+  //方法2
+  location.assign("/");
+   
+}
+</script>
+ 
+<br>
+<button onclick="jump()">跳转到首页</button>
+<br><br>
+
+
+
+
+
+<h3>JavaScript  Location 其他属性</h3>
+<script>
+function p(s){
+  document.write(s);
+  document.write("<br>");
+}
+ 
+p("协议 location.protocol:"+location.protocol);
+p("主机名 location.hostname:"+location.hostname);
+p("端口号 (默认是80，没有即表示80端口)location.port:"+location.port);
+ 
+p("主机加端口号 location.host: "+location.host);
+p("访问的路径  location.pathname: "+location.pathname);
+ 
+p("锚点 location.hash: "+location.hash);
+p("参数列表 location.search: "+location.search);
+ 
+</script>
+<br><br>
+
+
+
+
+
+<h2>JavaScript  弹出框</h2>
+<h3>JavaScript  警告框</h3>
+<script>
+function register(){
+   alert("注册成功");
+}
+</script>
+  
+<br>
+<button onclick="register()">注册</button>
+
+
+
+<h3>JavaScript  确认框</h3>
+确认框 confirm，常用于危险性操作的确认提示，需要确认两次。 比如删除一条记录的时候，弹出确认框。
+confirm返回基本类型的Boolean true或者false。
+<script>
+function del(){
+var d = confirm("是否要删除");
+alert(typeof d + " " + d);
+}
+</script>
+  
+<br>
+<button onclick="del()">删除</button>
+
+
+
+<h3>JavaScript  输入框</h3>
+这个还会给你看输入的结果呢！优秀！
+<script>
+function p(){
+var name = prompt("请输入用户名:");
+alert("您输入的用户名是:" + name);
+}
+</script>
+  
+<br>
+<button onclick="p()">请输入用户名</button>
+
+
+
+
+<h2>JavaScript  计时器</h2>
+<script>
+  
+function printTime(){
+  var d = new Date();
+  var h= d.getHours();
+  var m= d.getMinutes();
+  var s= d.getSeconds();
+  document.getElementById("time").innerHTML= h+":"+m+":"+s;
+  
+}
+ 
+function showTimeIn3Seconds(){
+   setTimeout(printTime,3000); 
+}
+  
+</script>
+<div id="time"></div>
+<button onclick="showTimeIn3Seconds()">点击后3秒钟后显示当前时间，并且只显示一次</button>
+
+
+
+
+<h3>为什么这些按钮都不显示呢？？？？？？？？？？？？？？</h3>
+
+
+
+<p>每隔1秒钟，打印当前时间</p>
+   
+<div id="time"></div>
+   
+<script>
+   
+function printTime(){
+  var d = new Date();
+  var h= d.getHours();
+  var m= d.getMinutes();
+  var s= d.getSeconds();
+  document.getElementById("time").innerHTML= h+":"+m+":"+s;
+   
+}
+   
+//var t = setInterval(printTime,1000);
+ 
+<button onclick="setInterval(printTime,1000)">每隔1秒钟，打印当前时间</button>
+
+</script>
+ 
+<br><br>
+
+
+
+
+
+<p>每隔1秒钟，打印当前时间</p>
+   
+<div id="time"></div>
+   
+<script>
+   
+//var t = setInterval(printTime,1000);
+ 
+function printTime2(){
+  var d = new Date();
+  var h= d.getHours();
+  var m= d.getMinutes();
+  var s= d.getSeconds();
+  document.getElementById("time").innerHTML= h+":"+m+":"+s;
+  if(s%5==0)
+     clearInterval(t);
+}
+
+<button onclick="setInterval(printTime2,1000)">每隔1秒钟，打印当前时间</button>
+   
+</script>
+<br>
+
+
+
+
+
+<p>每隔1秒钟，通过document.write打印当前时间</p>
+ 
+<script>
+ 
+function printTime3(){
+  var d = new Date();
+  document.write(d.getHours());
+  document.write(":");
+  document.write(d.getMinutes());
+  document.write(":");
+  document.write(d.getSeconds());
+  document.close();
+}
+ 
+//var t = setInterval(printTime,1000);
+ 
+<button onclick="setInterval(printTime3,1000)">每隔1秒钟，打印当前时间</button>
+
+</script>
