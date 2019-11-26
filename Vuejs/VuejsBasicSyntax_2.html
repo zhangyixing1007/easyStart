@@ -1,0 +1,708 @@
+<h1>Vue.js 基础语法 2</h1>
+<br><br>
+
+<h2>Vue.js 条件语句</h2>
+<h3>v-if</h3>
+<script src="https://how2j.cn/study/vue.min.js"></script>
+ 
+<div id="div1">
+   
+  <button v-on:click="toggle">切换隐藏显示</button>
+  <div v-if="show"> 默认这一条是看得见的</div>
+     
+</div>
+    
+<script>
+    
+new Vue({
+      el: '#div1',
+      data: {
+          show:true
+      },
+      methods:{
+          toggle: function(){
+              this.show=!this.show;
+          }
+      }
+    })
+    
+</script>
+
+
+
+<h3>v-else</h3>
+<script src="https://how2j.cn/study/vue.min.js"></script>
+   
+<div id="div2">
+   
+  <button v-on:click="moyiba"> 抽500w大奖 </button>
+  <div v-if="show"> 中了500万！</div>
+  <div v-else>谢谢惠顾！</div> 
+     
+</div>
+    
+<script>
+    
+new Vue({
+      el: '#div2',
+      data: {
+          show:false
+      },
+      methods:{
+          moyiba: function(){
+             this.show=Math.random()<0.1
+          }
+      }
+    })
+    
+</script>
+
+
+
+<h3>v-else-if</h3>
+<script src="https://how2j.cn/study/vue.min.js"></script>
+   
+<div id="div3">
+   
+  <button v-on:click="toutai"> 看看下辈子投胎是做什么的 </button>
+  <div v-if="number>98"> 神仙</div>
+  <div v-else-if="number>95"> 国家领导人</div>
+  <div v-else-if="number>90"> 大富商</div>
+  <div v-else-if="number>80"> 大企业主</div>
+  <div v-else-if="number>70"> 演艺明星</div>
+  <div v-else-if="number>60"> 小企业主</div>
+  <div v-else-if="number>50"> 普通公务员</div>
+  <div v-else-if="number>40"> 小个体户</div>
+  <div v-else-if="number>30"> 血汗工厂工人</div>
+  <div v-else-if="number>20"> 偏远山区农民</div>
+  <div v-else> 流浪汉</div>
+     
+</div>
+    
+<script>
+    
+new Vue({
+      el: '#div3',
+      data: {
+          number:0
+      },
+      methods:{
+          toutai: function(){
+             this.number=Math.random()*100
+          }
+      }
+    })
+    
+</script>
+
+
+
+
+
+<h2>Vue.js 循环语句</h2>
+
+<h3>v-for 循环语句</h3>
+<script src="https://how2j.cn/study/vue.min.js"></script>
+   
+<style>
+table tr td{
+    border:1px solid gray;
+}
+table{
+    border-collapse:collapse;
+    width:300px;
+}
+tr.firstLine{
+    background-color: lightGray;
+}
+</style>
+ 
+<div id="zyx1">
+   
+    <table align="center" >
+        <tr class="firstLine">
+            <td>album</td>
+            <td>time</td>
+        </tr>
+         
+        <tr v-for="item in albums">
+            <td>{{item.album}}</td>
+            <td>{{item.time}}</td>
+        </tr>
+         
+    </table>
+ 
+</div>
+    
+<script>
+  
+var data = [
+          {album:"Lose Control",time:20161028},
+          {album:"Sheep",time:20171007},
+          {album:"NAMANANA",time:20181019},
+          {album:"Honey",time:20190614},
+    ];
+new Vue({
+      el: '#zyx1',
+      data: {
+          albums:data
+      }
+    })
+    
+</script>
+
+
+
+
+
+
+<h3>index用法</h3>
+<script src="https://how2j.cn/study/vue.min.js"></script>
+   
+<style>
+table tr td{
+    border:1px solid gray;
+}
+table{
+    border-collapse:collapse;
+    width:300px;
+}
+tr.firstLine{
+    background-color: lightGray;
+}
+</style>
+ 
+<div id="zyx2">
+   
+    <table align="center" >
+        <tr class="firstLine">
+            <td>number</td>
+            <td>album</td>
+            <td>time</td>
+        </tr>
+         
+        <tr v-for="item,index in albums">
+            <td>{{index+1}}</td>
+            <td>{{item.album}}</td>
+            <td>{{item.time}}</td>
+        </tr>
+         
+    </table>
+ 
+</div>
+    
+<script>
+  
+var data = [
+          {album:"Lose Control",time:20161028},
+          {album:"Sheep",time:20171007},
+          {album:"NAMANANA",time:20181019},
+          {album:"Honey",time:20190614},
+    ];
+new Vue({
+      el: '#zyx2',
+      data: {
+          albums:data
+      }
+    })
+    
+</script>
+
+
+
+
+
+<h3>纯数字遍历</h3>
+<script src="https://how2j.cn/study/vue.min.js"></script>
+   
+<div id="eg1">
+    <div v-for="i in 10">
+     {{ i }}
+    </div>
+</div>
+    
+<script>
+  
+new Vue({
+      el: '#eg1'
+    })
+    
+</script>
+
+
+
+
+
+<h2>v-bind 属性绑定</h2>
+<script src="https://how2j.cn/study/vue.min.js"></script>
+   
+<div id="eg2">
+    <a v-bind:href="page">zhangyixing1007 GitHub</a>
+</div>
+    
+<script>
+  
+new Vue({
+      el: '#eg2',
+      data:{
+          page:'https://github.com/zhangyixing1007'
+      }
+    })
+    
+</script>
+<br>
+
+v-bind:href 简写成 :href。
+<script src="https://how2j.cn/study/vue.min.js"></script>
+   
+<div id="eg3">
+    <a :href="page">zhangyixing1007 GitHub</a>
+</div>
+    
+<script>
+  
+new Vue({
+      el: '#eg3',
+      data:{
+          page:'https://github.com/zhangyixing1007'
+      }
+    })
+    
+</script>
+
+
+
+
+
+
+<h2>v-model 双向绑定</h2>
+<script src="https://how2j.cn/study/vue.min.js"></script>
+   
+<div id="song">
+     
+    歌曲名称: <input v-model="name" >
+    <button @click="doClick" >提交</button>
+     
+</div>
+    
+<script>
+  
+new Vue({
+      el: '#song',
+      data:{
+        name:""
+      },
+      methods:{
+          doClick:function(){
+              alert(this.name);
+          }
+      }
+    })
+    
+</script>
+
+
+
+
+
+
+
+<h3>多种风格数据的绑定</h3>
+<script src="https://how2j.cn/study/vue.min.js"></script>
+    
+<style>
+table tr td{
+    border:1px solid gray;
+    padding:10px;
+     
+}
+table{
+    border-collapse:collapse;
+    width:800px;
+    table-layout:fixed;
+}
+tr.firstLine{
+    background-color: lightGray;
+}
+</style>
+  
+<div id="all">
+    
+    <table align="center" >
+        <tr class="firstLine">
+            <td>视图类型</td>
+            <td>输入数据</td>
+            <td>绑定到Vue上的数值</td>
+        </tr>       
+        <tr>
+            <td>
+                单行文本
+            </td>
+            <td>
+                <input v-model="input" placeholder="输入数据">
+            </td>
+            <td>
+                <p>{{ input }}</p>   
+            </td>
+        </tr>
+        <tr>
+            <td>
+                多行文本
+            </td>
+            <td>
+                <textarea v-model="textarea" placeholder="输入数据"></textarea>
+            </td>
+            <td>
+                <p>{{ textarea }}</p>   
+            </td>
+        </tr>
+        <tr>
+            <td>
+                单个复选框
+            </td>
+            <td>
+                <input type="checkbox" id="checkbox" v-model="checked">点我试试？
+            </td>
+            <td>
+                <p>{{ checked }}</p>   
+            </td>
+        </tr>
+        <tr>
+            <td>
+                单个复选框
+            </td>
+            <td>
+                默认值是true或者false,也可以修改为自定义的值<br>但默认状态下啥也不显示。
+                <input type="checkbox" id="toggle" true-value="点击状态" false-value="未点击状态" v-model="toggle">
+            </td>
+            <td>
+                <p>{{ toggle }}</p>   
+            </td>
+        </tr>       
+        <tr>
+            <td>
+                多个复选框
+            </td>
+            <td>
+                  <input type="checkbox" id="wbh" value="单曲" v-model="checkedes">
+                  <label for="wbh">我不好</label>
+                  <input type="checkbox" id="wa" value="单曲" v-model="checkedes">
+                  <label for="wa">晚安</label>
+                  <input type="checkbox" id="reknow" value="微真人秀" v-model="checkedes">
+                  <label for="reknow">reknow</label>
+            </td>
+            <td>
+                <p>{{ checkedes }}</p>   
+            </td>
+        </tr>
+        <tr>
+            <td>
+                第二个复选框
+            </td>
+            <td>
+                  <input type="checkbox" id="wbh2" value="Lay式情歌第一弹" v-model="checkedes2">
+                  <label for="wbh2">我不好</label>
+                  <input type="checkbox" id="wa2" value="Lay式情歌第二弹" v-model="checkedes2">
+                  <label for="wa2">晚安</label>
+                  <input type="checkbox" id="reknow2" value="微真人秀" v-model="checkedes2">
+                  <label for="reknow2">reknow</label>
+            </td>
+            <td>
+                <p>{{ checkedes2}}</p>   
+            </td>
+        </tr>
+        <tr>
+            <td>
+                单选按钮
+            </td>
+            <td>
+              <input type="radio" id="one" value="2019年9月9日发行" v-model="radio">
+              <label for="one">我不好</label>
+              <br>
+              <input type="radio" id="two" value="2019年11月15日发行" v-model="radio">
+              <label for="two">晚安</label>
+            </td>
+            <td>
+                <p>{{ radio }}</p>   
+            </td>
+        </tr>
+        <tr>
+            <td>
+                单选选择框
+            </td>
+            <td>
+              <select v-model="selected" size="5">
+                <option disabled value="">请选择</option>
+                <option>Honey</option>
+                <option>和你</option>
+                <option>Bad</option>
+                <option>Amusement Park</option>
+              </select>
+            </td>
+            <td>
+                <p>{{ selected }}</p>   
+            </td>
+        </tr>
+        <tr>
+            <td>
+                多选选择框
+            </td>
+            <td>
+              (通过ctrl或者shift进行多选)<br>
+              <select v-model="selecteds" multiple size="5">
+                <option disabled value="">请选择</option>
+                <option>Honey</option>
+                <option>和你</option>
+                <option>Bad</option>
+                <option>Amusement Park</option>
+              </select>
+            </td>
+            <td>
+                <p>{{ selecteds }}</p>   
+            </td>
+        </tr>
+
+ 
+    </table>
+  
+</div>
+     
+<script>
+   
+new Vue({
+      el: '#all',
+      data: {
+          input:'',
+          textarea:'',
+          checked:'',
+          checkedes:[],
+          checkedes2:[],
+          radio:'',
+          selected:'',
+          selecteds:[],
+          toggle:'',
+           
+      }
+    })
+     
+</script>
+
+
+
+
+
+
+
+<h3>v-model.lazy </h3>
+<script src="https://how2j.cn/study/vue.min.js"></script>
+    
+<style>
+table tr td{
+    border:1px solid gray;
+    padding:10px;
+     
+}
+table{
+    border-collapse:collapse;
+    width:800px;
+    table-layout:fixed;
+}
+tr.firstLine{
+    background-color: lightGray;
+}
+</style>
+  
+<div id="lazy">
+    
+    <table align="center" >
+        <tr class="firstLine">
+            <td>视图类型</td>
+            <td>输入数据</td>
+            <td>绑定到Vue上的数值</td>
+        </tr>       
+        <tr>
+            <td>
+                同步更新
+            </td>
+            <td>
+                <input v-model="input1" placeholder="输入数据">
+            </td>
+            <td>
+                <p>{{ input1 }}</p>   
+            </td>
+        </tr>
+        <tr>
+            <td>
+                失去焦点后更新（输入完毕后点击其他地方）
+            </td>
+            <td>
+                <input v-model.lazy="input2" placeholder="输入数据">
+            </td>
+            <td>
+                <p>{{ input2 }}</p>   
+            </td>
+        </tr>
+    </table>
+  
+</div>
+     
+<script>
+   
+new Vue({
+      el: '#lazy',
+      data: {
+          input1:'',
+          input2:''
+           
+      }
+    })
+     
+</script>
+
+
+
+
+
+
+<h3>v-model.number </h3>
+<script src="https://how2j.cn/study/vue.min.js"></script>
+     
+<style>
+table tr td{
+    border:1px solid gray;
+    padding:10px;
+      
+}
+table{
+    border-collapse:collapse;
+    width:800px;
+    table-layout:fixed;
+}
+tr.firstLine{
+    background-color: lightGray;
+}
+</style>
+   
+<div id="number">
+     
+    <table align="center" >
+        <tr class="firstLine">
+            <td>视图类型</td>
+            <td>输入数据</td>
+            <td>绑定到Vue上的数值</td>
+            <td>数值类型</td>
+        </tr>      
+        <tr>
+            <td>
+                v-model type限定 只能输入数字 储存为字符串
+            </td>
+            <td>
+                <input v-model="input1" type="number" placeholder="输入数据">
+            </td>
+            <td>
+                <p>{{ input1 }}</p>  
+            </td>
+            <td>
+                <p>{{ typeof input1 }}</p>  
+            </td>
+        </tr>
+        <tr>
+            <td>
+                v-model-number type限定 只能输入数字 储存为数字
+            </td>
+            <td>
+                <input v-model.number="input2"   type="number"  placeholder="输入数据">
+            </td>
+            <td>
+                <p>{{ input2 }}</p>  
+            </td>
+            <td>
+                <p>{{ typeof input2 }}</p>  
+            </td>
+        </tr>
+    </table>
+   
+</div>
+      
+<script>
+    
+new Vue({
+      el: '#number',
+      data: {
+          input1:'',
+          input2:''
+            
+      }
+    })
+      
+</script>
+
+
+
+
+
+<h3>v-model.trim </h3>
+<script src="https://how2j.cn/study/vue.min.js"></script>
+     
+<style>
+table tr td{
+    border:1px solid gray;
+    padding:10px;
+      
+}
+table{
+    border-collapse:collapse;
+    width:800px;
+    table-layout:fixed;
+}
+tr.firstLine{
+    background-color: lightGray;
+}
+</style>
+   
+<div id="trim">
+     
+    <table align="center" >
+        <tr class="firstLine">
+            <td>视图类型</td>
+            <td>输入数据</td>
+            <td>绑定到Vue上的数值</td>
+        </tr>      
+        <tr>
+            <td>
+                单行文本trim前
+            </td>
+            <td>
+                <input v-model ="input1" placeholder="输入数据">
+            </td>
+            <td>
+                <p>"{{ input1 }}"</p>  
+            </td>
+        </tr>
+        <tr>
+            <td>
+                单行文本trim后 
+            </td>
+            <td>
+                <input v-model.trim="input2" placeholder="输入数据">
+            </td>
+            <td>
+                <p>"{{ input2 }}"</p>  
+            </td>
+        </tr>
+    </table>
+   
+</div>
+      
+<script>
+    
+new Vue({
+      el: '#trim',
+      data: {
+          input1:'',
+          input2:''
+            
+      }
+    })
+      
+</script>
