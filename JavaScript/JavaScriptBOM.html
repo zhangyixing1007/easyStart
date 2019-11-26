@@ -266,10 +266,6 @@ function showTimeIn3Seconds(){
 
 
 
-<h3>为什么这些按钮都不显示呢？？？？？？？？？？？？？？</h3>
-
-
-
 <p>每隔1秒钟，打印当前时间</p>
    
 <div id="time"></div>
@@ -286,10 +282,9 @@ function printTime(){
 }
    
 //var t = setInterval(printTime,1000);
- 
-<button onclick="setInterval(printTime,1000)">每隔1秒钟，打印当前时间</button>
-
 </script>
+
+<button onclick="setInterval(printTime,1000)">每隔1秒钟，在当前页面打印当前时间</button>
  
 <br><br>
 
@@ -299,7 +294,7 @@ function printTime(){
 
 <p>每隔1秒钟，打印当前时间</p>
    
-<div id="time"></div>
+<div id="time2"></div>
    
 <script>
    
@@ -310,15 +305,15 @@ function printTime2(){
   var h= d.getHours();
   var m= d.getMinutes();
   var s= d.getSeconds();
-  document.getElementById("time").innerHTML= h+":"+m+":"+s;
+  document.getElementById("time2").innerHTML= h+":"+m+":"+s;
   if(s%5==0)
      clearInterval(t);
 }
+</script>
 
 <button onclick="setInterval(printTime2,1000)">每隔1秒钟，打印当前时间</button>
-   
-</script>
-<br>
+
+<br><br>
 
 
 
@@ -339,7 +334,9 @@ function printTime3(){
 }
  
 //var t = setInterval(printTime,1000);
- 
-<button onclick="setInterval(printTime3,1000)">每隔1秒钟，打印当前时间</button>
-
 </script>
+<button onclick="setInterval(printTime3,1000)">每隔1秒钟，在新页面打印当前时间</button>
+
+
+
+
