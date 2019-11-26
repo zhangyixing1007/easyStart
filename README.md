@@ -1,18 +1,12 @@
-# 快速入门[HTML](https://baike.baidu.com/item/HTML/97049?fr=aladdin)/[JavaScript](https://baike.baidu.com/item/javascript)
+# 快速入门[HTML](https://baike.baidu.com/item/HTML/97049?fr=aladdin)/[JavaScript](https://baike.baidu.com/item/javascript)/[Vue.js](https://cn.vuejs.org/)
 
 预计后续还会更新 **快速入门**
 [CSS](https://baike.baidu.com/item/CSS/5457)
-、
-[Ajax](https://baike.baidu.com/item/ajax/8425)
-、
-[Vue.js](https://baike.baidu.com/item/Vue.js)
-、
-[JSON](https://baike.baidu.com/item/JSON)
 等，欢迎star。
 
+**学习方法**： 直接下载对应文件，然后用Chrome浏览器打开html文件，对比阅读，三分钟入门。
 
 ## [HTML](https://github.com/zhangyixing1007/practice/tree/master/HTML)
-直接下载对应文件，然后用Chrome浏览器打开html文件，对比阅读，三分钟入门。
 * [HTMLBasicSyntax_1.html](https://github.com/zhangyixing1007/practice/blob/master/HTML/HTMLBasicSyntax_1.html): 
 换行、空行、粗体、斜体、嵌套、预格式、删除线、下划线。
 * [HTMLBasicSyntax_2.html](https://github.com/zhangyixing1007/practice/blob/master/HTML/HTMLBasicSyntax_2.html):
@@ -27,12 +21,18 @@
 * [JavaScriptBOM.html](https://github.com/zhangyixing1007/easyStart/blob/master/JavaScript/JavaScriptBOM.html)
 
 
+## [Vue.js](https://github.com/zhangyixing1007/easyStart/tree/master/Vuejs)
+* [VuejsBasicSyntax_1.html](https://github.com/zhangyixing1007/easyStart/blob/master/Vuejs/VuejsBasicSyntax_1.html):
+
+* [VuejsBasicSyntax_2.html](https://github.com/zhangyixing1007/easyStart/blob/master/Vuejs/VuejsBasicSyntax_2.html):
+
+* [VuejsBasicSyntax_3.html](https://github.com/zhangyixing1007/easyStart/blob/master/Vuejs/VuejsBasicSyntax_3.html):
+
+* [VuejsBasicSyntax_4.html](https://github.com/zhangyixing1007/easyStart/blob/master/Vuejs/VuejsBasicSyntax_4.html):
+
+* [CRUDExample.html](https://github.com/zhangyixing1007/easyStart/blob/master/Vuejs/CRUEExample.html):
+路由、fetch、axios、Ajax、CRUD。
+
 预计后续还会更新 **快速入门**
 [CSS](https://baike.baidu.com/item/CSS/5457)
-、
-[Ajax](https://baike.baidu.com/item/ajax/8425)
-、
-[Vue.js](https://baike.baidu.com/item/Vue.js)
-、
-[JSON](https://baike.baidu.com/item/JSON)
 等，欢迎star。
