@@ -1,0 +1,386 @@
+<h1>Vue.js 基础语法 4</h1>
+<br><br>
+
+<h2>Vue.js 组件</h2>
+
+<a href = "https://how2j.cn/k/vuejs/vuejs-component/1753.html#step7817">什么是组件？</a>
+<br>
+
+<script src="https://how2j.cn/study/vue.min.js"></script>
+ 
+<style>
+div.product{
+  float:left;
+  border:1px solid lightGray;
+  width:200px;
+  margin:10px;
+  cursor: pointer;
+}
+</style>
+ 
+<div id="div1">
+    <product></product>
+    <product></product>
+    <product></product>
+</div>
+  
+<script>
+Vue.component('product', {
+      template: '<div class="product" >一出好戏</div>'
+    })
+ 
+new Vue({
+  el: '#div1'
+})
+</script>
+<br><br>
+
+
+
+
+
+<h3>Vue.js 组件 传递参数</h3>
+<script src="https://how2j.cn/study/vue.min.js"></script>
+ 
+<style>
+div.product{
+  float:left;
+  border:1px solid lightGray;
+  width:200px;
+  margin:10px;
+  cursor: pointer;
+}
+</style>
+ 
+<div id="TV">
+    <product name="老九门"></product>
+    <product name="黄金瞳"></product>
+    <product name="一出好戏"></product>
+</div>
+  
+<script>
+Vue.component('product', {
+      props:['name'],
+      template: '<div class="product" >{{name}}</div>'
+    })
+ 
+new Vue({
+  el: '#TV'
+})
+</script>
+<br><br>
+
+
+
+
+<h3>动态参数</h3>
+<script src="https://how2j.cn/study/vue.min.js"></script>
+ 
+<style>
+div.product{
+  float:left;
+  border:1px solid lightGray;
+  width:200px;
+  margin:10px;
+  cursor: pointer;
+}
+</style>
+ 
+<div id="try">
+    组件外的值：<input v-model="outName" ><br>
+    <product v-bind:name="outName"></product>
+</div>
+  
+<script>
+Vue.component('product', {
+      props:['name'],
+      template: '<div class="product" >{{name}}</div>'
+    })
+ 
+new Vue({
+  el: '#try',
+  data:{
+      outName:'产品名称'
+  }
+})
+</script>
+<br><br>
+
+
+
+
+<h3>自定义事件</h3>
+点击以下按钮可增加播放量。
+<script src="https://how2j.cn/study/vue.min.js"></script>
+ 
+<style>
+div.product{
+  float:left;
+  border:1px solid lightGray;
+  width:280px;
+  margin:10px;
+  cursor: pointer;
+}
+</style>
+ 
+<div id="watch">
+    <product name="老九门" sale="1089786756" ></product>
+    <product name="黄金瞳" sale="2675645453" ></product>
+    <product name="一出好戏" sale="3678676453" ></product>
+</div>
+ 
+<script>
+Vue.component('product', {
+      props:['name','sale'],
+      template: '<div class="product" v-on:click="increaseSale">{{name}} 播放量: {{sale}} </div>',
+      methods:{
+          increaseSale:function(){
+              this.sale++
+          }
+      }
+    })
+ 
+new Vue({
+  el: '#watch'
+})
+</script>
+<br><br><br>
+
+
+
+
+
+
+<h3>遍历json数组</h3>
+<script src="https://how2j.cn/study/vue.min.js"></script>
+ 
+<style>
+div.product{
+  float:left;
+  border:1px solid lightGray;
+  width:280px;
+  margin:10px;
+  cursor: pointer;
+}
+</style>
+ 
+<div id="json">
+    <product v-for="item in products" v-bind:product="item"></product>
+</div>
+ 
+<script>
+Vue.component('product', {
+      props:['product'],
+      template: '<div class="product" v-on:click="increaseSale">{{product.name}} 播放量: {{product.sale}} </div>',
+      methods:{
+          increaseSale:function(){
+              this.product.sale++
+          }
+      }
+    })
+ 
+new Vue({
+  el: '#json',
+  data:{
+      products:[
+                {"name":"老九门","sale":"1089786756"},
+                {"name":"黄金瞳","sale":"2675645453"},
+                {"name":"一出好戏","sale":"3678676453"}
+                ]
+  }
+})
+</script>
+<br><br><br>
+
+
+
+
+<h3>一个例子</h3>
+<script src="https://how2j.cn/study/vue.min.js"></script>
+ 
+<style>
+div.product{
+  float:left;
+  border:1px solid lightGray;
+  width:200px;
+  margin:10px;
+  cursor: pointer;
+}
+div.product:hover{
+  border:1px solid #c40000;
+   
+}
+div.price{
+  color:#c40000; 
+  font-weight:bold;
+  font-size:1.2em;
+  margin:10px;
+}
+div.productName{
+  color:gray;
+  font-size:0.8em;
+  margin:10px;
+}
+div.sale{
+  float:left; 
+  width:100px;
+  border:1px solid lightgray;
+  border-width:1px 0px 0px 0px;
+  color:gray;
+  font-size:0.8em;
+  padding-left:10px;
+}
+div.review{
+  overflow:hidden;
+  border:1px solid lightgray;
+  border-width:1px 0px 0px 1px;
+  color:gray;
+  font-size:0.8em; 
+  padding-left:10px;
+} 
+</style>
+ 
+<div id="tempalate" style="display:none">
+    <div class="product" v-on:click="increaseSales">
+        <div class="price">
+                    ¥ {{product.price}}
+        </div>
+        <div class="productName">
+            {{product.name}}
+        </div>
+        <div class="sale"> 月成交 {{product.sale}} 笔</div>
+        <div class="review"> 评价 {{product.review}} </div>
+    </div>
+</div>
+ 
+<div id="bond">
+    <product v-for="item in products" v-bind:product="item"></product>
+</div>
+  
+<script>
+var tempalateDiv=document.getElementById("tempalate").innerHTML;
+var templateObject = {
+    props: ['product'],
+    template: tempalateDiv,
+      methods: {
+            increaseSales: function () {
+                this.product.sale = parseInt(this.product.sale);
+              this.product.sale += 1
+              this.$emit('increment')
+            }
+          }
+ 
+}
+ 
+Vue.component('product', templateObject)
+ 
+new Vue({
+  el: '#bond',
+  data:{
+      products:[
+                {"name":"MAXFEEL休闲男士手包真皮手拿包大容量信封包手抓包夹包软韩版潮","price":"889","sale":"18","review":"5"},
+                {"name":"宾度 男士手包真皮大容量手拿包牛皮个性潮男包手抓包软皮信封包","price":"322","sale":"35","review":"12"},
+                {"name":"唯美诺新款男士手包男包真皮大容量小羊皮手拿包信封包软皮夹包潮","price":"523","sale":"29","review":"3"},
+                ]
+  }
+})
+</script>
+
+<br><br><br>
+<br><br><br>
+<br><br><br>
+
+
+
+
+
+<h2>Vue.js 自定义指令</h2>
+以下xart是函数名称，可以自己定义这个名称的。
+<script src="https://how2j.cn/study/vue.min.js"></script>
+ 
+<div id="eg1">
+     
+    <div v-xart> 好好学习，天天向上 </div>
+     
+</div>
+ 
+<script>
+ 
+Vue.directive('xart', function (el) {
+    el.innerHTML = el.innerHTML + ' ( x-art ) '
+    el.style.color = 'pink'
+})
+ 
+new Vue({
+  el: '#eg1'
+})
+</script>
+
+
+
+
+
+
+<script src="https://how2j.cn/study/vue.min.js"></script>
+ 
+<div id="eg3">
+     
+    <div v-xart="{color:'red',text:'best learning video'}"> 好好学习，天天向上 </div>
+     
+</div>
+ 
+<script>
+ 
+Vue.directive('xart', function (el,binding) {
+    el.innerHTML = el.innerHTML + '( ' + binding.value.text + ' )'
+    el.style.color = binding.value.color
+})
+ 
+new Vue({
+  el: '#eg3'
+})
+</script>
+<br><br>
+
+
+
+
+<b>这一段我是真的没看懂啊！</b>
+<script src="https://how2j.cn/study/vue.min.js"></script>
+ 
+<div id="recall">
+     
+    <div v-xart:hello.a.b="message"> </div>
+     
+</div>
+ 
+<script>
+Vue.directive('xart', {
+      bind: function (el, binding, vnode) {
+            var s = JSON.stringify
+            el.innerHTML =
+              'name: '       + s(binding.name) + '<br>' +
+              'value: '      + s(binding.value) + '<br>' +
+              'expression: ' + s(binding.expression) + '<br>' +
+              'argument: '   + s(binding.arg) + '<br>' +
+              'modifiers: '  + s(binding.modifiers) + '<br>' +
+              'vnode keys: ' + Object.keys(vnode).join(', ')
+      },
+       
+      update: function (newValue, oldValue) {
+        // 值更新时的工作
+        // 也会以初始值为参数调用一次
+      },
+      unbind: function () {
+        // 清理工作
+        // 例如，删除 bind() 添加的事件监听器
+      }
+    })
+     
+new Vue({
+  el: '#recall',
+  data:{
+      message:'hello vue.js'
+  }
+})
+</script>
