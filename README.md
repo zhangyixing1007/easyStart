@@ -23,9 +23,9 @@
 
 ## [Vue.js](https://github.com/zhangyixing1007/easyStart/tree/master/Vuejs)
 * [VuejsBasicSyntax_1.html](https://github.com/zhangyixing1007/easyStart/blob/master/Vuejs/VuejsBasicSyntax_1.html):
-
+冒泡、why Vue.js、冒泡、click.stop 停止冒泡、click.capture 优先触发、click.self 只有自己能触发、click.once只能触发一次、prevent 阻止刷新。
 * [VuejsBasicSyntax_2.html](https://github.com/zhangyixing1007/easyStart/blob/master/Vuejs/VuejsBasicSyntax_2.html):
-
+条件语句、循环语句、v-model、多种风格的绑定、v-model.lazy、v-model.number、v-model.trim。
 * [VuejsBasicSyntax_3.html](https://github.com/zhangyixing1007/easyStart/blob/master/Vuejs/VuejsBasicSyntax_3.html):
 v-model、computed、methods、watch、filter。
 * [VuejsBasicSyntax_4.html](https://github.com/zhangyixing1007/easyStart/blob/master/Vuejs/VuejsBasicSyntax_4.html):
