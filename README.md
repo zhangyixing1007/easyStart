@@ -27,9 +27,9 @@
 * [VuejsBasicSyntax_2.html](https://github.com/zhangyixing1007/easyStart/blob/master/Vuejs/VuejsBasicSyntax_2.html):
 
 * [VuejsBasicSyntax_3.html](https://github.com/zhangyixing1007/easyStart/blob/master/Vuejs/VuejsBasicSyntax_3.html):
-
+v-model、computed、methods、watch、filter。
 * [VuejsBasicSyntax_4.html](https://github.com/zhangyixing1007/easyStart/blob/master/Vuejs/VuejsBasicSyntax_4.html):
-
+组件、自定义指令。
 * [CRUDExample.html](https://github.com/zhangyixing1007/easyStart/blob/master/Vuejs/CRUEExample.html):
 路由、fetch、axios、Ajax、CRUD。
 
