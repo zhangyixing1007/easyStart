@@ -1,4 +1,4 @@
-<h1>Vue.js 基础语法 5</h1>
+<h1>Vue.js CRUD</h1>
 <br><br>
 
 <h2>Vue.js 路由</h2>
@@ -94,20 +94,20 @@
 
 
 <h2>通过 fetch 获取数据</h2>
-哥，数据呢？？？？
+https, static。
 <script src="https://how2j.cn/study/fetch.min.js"></script>
   
-<div id="fetch">
+<div id="fetch0">
   
 </div>
   
 <script>
 
-var url = "http://how2j.cn/study/json.txt"
+var url = "https://static.how2j.cn/study/json.txt"
 fetch(url).then(function(response) {
     response.json().then(function (jsonObject) {
         var jsonString = JSON.stringify(jsonObject)
-        document.getElementById("hero").innerHTML = "通过fetch获取到的json数据："+ jsonString;
+        document.getElementById("fetch0").innerHTML = "通过fetch获取到的json数据："+ jsonString;
     })
 }).catch(function(err){
     console.log("Fetch错误:"+err);
@@ -117,23 +117,28 @@ fetch(url).then(function(response) {
 
 
 
+
+
+
 <h2>通过 axios 获取数据</h2>
-哥，数据呢？？？？
+https, static。
 <script src="https://how2j.cn/study/axios.min.js"></script>
   
-<div id="axios">
+<div id="axios0">
   
 </div>
   
 <script>
-var url = "http://how2j.cn/study/json.txt"
+var url = "https://static.how2j.cn/study/json.txt"
     axios.get(url).then(function(response) {
         var jsonObject = response.data;
         var jsonString = JSON.stringify(jsonObject)
-        document.getElementById("hero2").innerHTML = "通过 axios 获取到的json数据："+ jsonString;
+        document.getElementById("axios0").innerHTML = "通过 axios 获取到的json数据："+ jsonString;
     })
   
 </script>
+
+
 
 
 
@@ -179,7 +184,7 @@ tr.firstLine{
 </div>
   
 <script>
-var url = "http://how2j.cn/study/jsons.txt";
+var url = "https://how2j.cn/study/jsons.txt";
 new Vue({
     el:'#ajax',
     data:{
@@ -239,7 +244,7 @@ tr.firstLine{
 </div>
   
 <script>
-var url = "http://how2j.cn/study/jsons.txt";
+var url = "https://how2j.cn/study/jsons.txt";
 new Vue({
     el:'#div2',
     data:{
