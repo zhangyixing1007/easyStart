@@ -1,0 +1,463 @@
+<h1>Vue.js 基础语法 3</h1>
+<br><br>
+
+<h2>Vue.js 属性绑定</h2>
+<h3>例如 v-model.number</h3>
+
+
+
+<script src="https://how2j.cn/study/vue.min.js"></script>
+     
+<style>
+table tr td{
+    border:1px solid gray;
+    padding:10px;
+      
+}
+table{
+    border-collapse:collapse;
+    width:800px;
+    table-layout:fixed;
+}
+tr.firstLine{
+    background-color: lightGray;
+}
+</style>
+   
+<div id="div1">
+     
+    <table align="center" >
+        <tr class="firstLine">
+            <td>人民币</td>
+            <td>美元</td>
+        </tr>      
+        <tr>
+            <td align="center" colspan="2">
+            汇率： <input type="number" v-model.number="exchange" />
+            </td>
+        </tr>
+         
+        <tr>
+         
+            <td align="center">
+                ￥: <input type="number" v-model.number = "rmb"  />
+            </td>
+            <td align="center">
+                $: {{ rmb/exchange }}
+            </td>
+        </tr>
+    </table>
+   
+</div>
+      
+<script>
+    
+new Vue({
+      el: '#div1',
+      data: {
+          exchange:7,
+          rmb:0
+      }
+    })
+      
+</script>
+
+
+
+
+
+
+
+用computed封装计算过程！
+
+<script src="https://how2j.cn/study/vue.min.js"></script>
+     
+<style>
+table tr td{
+    border:1px solid gray;
+    padding:10px;
+      
+}
+table{
+    border-collapse:collapse;
+    width:800px;
+    table-layout:fixed;
+}
+tr.firstLine{
+    background-color: lightGray;
+}
+</style>
+   
+<div id="computed">
+     
+    <table align="center" >
+        <tr class="firstLine">
+            <td>人民币</td>
+            <td>美元</td>
+        </tr>      
+        <tr>
+            <td align="center" colspan="2">
+            汇率： <input type="number" v-model.number="exchange" />
+            </td>
+        </tr>
+         
+        <tr>
+         
+            <td align="center">
+                ￥: <input type="number" v-model.number = "rmb"  />
+            </td>
+            <td align="center">
+                $: {{ dollar }}
+            </td>
+        </tr>
+    </table>
+   
+</div>
+      
+<script>
+    
+new Vue({
+      el: '#computed',
+      data: {
+          exchange:7,
+          rmb:0
+      },
+      computed:{
+          dollar:function() {
+              return this.rmb / this.exchange;
+          }
+      }
+    })
+      
+</script>
+
+
+
+
+
+用methods封装计算过程！
+<script src="https://how2j.cn/study/vue.min.js"></script>
+     
+<style>
+table tr td{
+    border:1px solid gray;
+    padding:10px;
+      
+}
+table{
+    border-collapse:collapse;
+    width:800px;
+    table-layout:fixed;
+}
+tr.firstLine{
+    background-color: lightGray;
+}
+</style>
+   
+<div id="method">
+     
+    <table align="center" >
+        <tr class="firstLine">
+            <td>人民币</td>
+            <td>美元</td>
+        </tr>      
+        <tr>
+            <td align="center" colspan="2">
+            汇率： <input type="number" v-model.number="exchange" />
+            </td>
+        </tr>
+         
+        <tr>
+         
+            <td align="center">
+                ￥: <input type="number" v-model.number = "rmb"  />
+            </td>
+            <td align="center">
+                $: {{ getDollar() }}
+            </td>
+        </tr>
+    </table>
+   
+</div>
+      
+<script>
+    
+new Vue({
+      el: '#method',
+      data: {
+          exchange:7,
+          rmb:0
+      },
+      methods:{
+          getDollar:function() {
+              return this.rmb / this.exchange;
+          }
+      }
+    })
+      
+</script>
+computed 是有缓存的，只要rmb没有变化，dollar 会直接返回以前计算出来的值，而不会再次计算。 这样如果是复杂计算，就会节约不少时间。
+而methods每次都会调用。
+
+
+
+vue可以通过watch来监听属性值的变化。
+<script src="https://how2j.cn/study/vue.min.js"></script>
+     
+<style>
+table tr td{
+    border:1px solid gray;
+    padding:10px;
+      
+}
+table{
+    border-collapse:collapse;
+    width:800px;
+    table-layout:fixed;
+}
+tr.firstLine{
+    background-color: lightGray;
+}
+</style>
+   
+<div id="watch">
+     
+    <table align="center" >
+        <tr class="firstLine">
+            <td>人民币</td>
+            <td>美元</td>
+        </tr>      
+        <tr>
+            <td align="center" colspan="2">
+            汇率： <input type="number" v-model.number="exchange" />
+            </td>
+        </tr>
+         
+        <tr>
+         
+            <td align="center">
+                ￥: <input type="number" v-model.number = "rmb"  />
+            </td>
+            <td align="center">
+                $: <input type="number" v-model.number = "dollar"   />
+            </td>
+        </tr>
+    </table>
+   
+</div>
+      
+<script>
+    
+new Vue({
+      el: '#watch',
+      data: {
+          exchange:7,
+          rmb:0,
+          dollar:0
+      },
+      watch:{
+          rmb:function(val) {
+              this.rmb = val;
+              this.dollar = this.rmb / this.exchange;
+          },
+          dollar:function(val) {
+              this.dollar = val;
+              this.rmb = this.dollar * this.exchange;
+          },
+      }
+       
+    })
+      
+</script>
+
+
+
+
+
+
+
+<h2>过滤器</h2>
+<h3>一个过滤器</h3>
+<script src="https://how2j.cn/study/vue.min.js"></script>
+ 
+<style>
+table tr td{
+    border:1px solid gray;
+    padding:10px;
+      
+}
+table{
+    border-collapse:collapse;
+    width:800px;
+    table-layout:fixed;
+}
+tr.firstLine{
+    background-color: lightGray;
+}
+</style>
+   
+<div id="filter1">
+     
+    <table align="center" >
+        <tr class="firstLine">
+            <td>输入数据</td>
+            <td>过滤后的结果</td>
+        </tr>      
+        <tr>
+            <td align="center">
+                <input v-model= "data"  />
+            </td>
+            <td align="center">
+                {{ data|capitalize }}
+            </td>
+        </tr>
+    </table>
+   
+</div>
+      
+<script>
+    
+new Vue({
+      el: '#filter1',
+      data: {
+          data:''
+      },
+      filters:{
+          capitalize:function(value) {
+                if (!value) return '' //如果为空，则返回空字符串
+                value = value.toString()
+                return value.charAt(0).toUpperCase() + value.substring(1)
+          }
+      }
+    })
+      
+</script>
+
+
+
+
+<h3>多个过滤器</h3>
+<script src="https://how2j.cn/study/vue.min.js"></script>
+ 
+<style>
+table tr td{
+    border:1px solid gray;
+    padding:10px;
+      
+}
+table{
+    border-collapse:collapse;
+    width:800px;
+    table-layout:fixed;
+}
+tr.firstLine{
+    background-color: lightGray;
+}
+</style>
+   
+<div id="filter2">
+     
+    <table align="center" >
+        <tr class="firstLine">
+            <td>输入数据</td>
+            <td>过滤后的结果</td>
+        </tr>      
+        <tr>
+            <td align="center">
+                <input v-model= "data"  />
+            </td>
+            <td align="center">
+                {{ data|capitalize|capitalizeLastLetter }}
+            </td>
+        </tr>
+    </table>
+   
+</div>
+      
+<script>
+    
+new Vue({
+      el: '#filter2',
+      data: {
+          data:''
+      },
+      filters:{
+          capitalize:function(value) {
+                if (!value) return '' //如果为空，则返回空字符串
+                value = value.toString()
+                return value.charAt(0).toUpperCase() + value.substring(1)
+          },
+          capitalizeLastLetter:function(value) {
+                if (!value) return '' //如果为空，则返回空字符串
+                value = value.toString()
+                return value.substring(0,value.length-1)+ value.charAt(value.length-1).toUpperCase()
+          }
+      }
+    })
+      
+</script>
+
+
+
+
+
+<h3>全局过滤器</h3>
+<script src="https://how2j.cn/study/vue.min.js"></script>
+ 
+<style>
+table tr td{
+    border:1px solid gray;
+    padding:10px;
+      
+}
+table{
+    border-collapse:collapse;
+    width:800px;
+    table-layout:fixed;
+}
+tr.firstLine{
+    background-color: lightGray;
+}
+</style>
+   
+<div id="filter3">
+     
+    <table align="center" >
+        <tr class="firstLine">
+            <td>输入数据</td>
+            <td>过滤后的结果</td>
+        </tr>      
+        <tr>
+            <td align="center">
+                <input v-model= "data"  />
+            </td>
+            <td align="center">
+                {{ data|capitalize|capitalizeLastLetter }}
+            </td>
+        </tr>
+    </table>
+   
+</div>
+      
+<script>
+Vue.filter('capitalize', function (value) {
+    if (!value) return ''
+    value = value.toString()
+    return value.charAt(0).toUpperCase() + value.slice(1)
+})
+     
+Vue.filter('capitalizeLastLetter', function (value) {
+    if (!value) return '' //如果为空，则返回空字符串
+    value = value.toString()
+    return value.substring(0,value.length-1)+ value.charAt(value.length-1).toUpperCase()
+})
+ 
+new Vue({
+      el: '#filter3',
+      data: {
+          data:''
+      }
+    })
+      
+</script>
+
