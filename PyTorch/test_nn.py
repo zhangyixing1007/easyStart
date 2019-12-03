@@ -6,15 +6,12 @@ import torch.nn.functional as F
 class Net(nn.Module):
 
     def __init__(self):
-#Python中 __init__的通俗解释是什么？ - 知乎
-#https://www.zhihu.com/question/46973549/answer/103805810
         super(Net, self).__init__()
         # 1 input image channel, 6 output channels, 3x3 square convolution
         # kernel
         self.conv1 = nn.Conv2d(1, 6, 3)#nn.Conv2d(in_channels, out_channels, kernel_size)
         self.conv2 = nn.Conv2d(6, 16, 3)
         # an affine operation: y = Wx + b
-        #https://www.jianshu.com/p/45a26d278473
         self.fc1 = nn.Linear(16 * 6 * 6, 120)  #nn.Linear(in_channels,out_channels)
         self.fc2 = nn.Linear(120, 84)
         self.fc3 = nn.Linear(84, 10)
@@ -90,7 +87,7 @@ loss.backward()
 print('conv1.bias.grad after backward = ')
 print(net.conv1.bias.grad)
 
-#backward() https://www.cnblogs.com/luckyscarlett/p/10552747.html
+
 
 
 import torch.optim as optim
