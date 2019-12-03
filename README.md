@@ -1,4 +1,4 @@
-# 快速入门[HTML](https://baike.baidu.com/item/HTML/97049?fr=aladdin)/[JavaScript](https://baike.baidu.com/item/javascript)/[Vue.js](https://cn.vuejs.org/)
+# 快速入门[HTML](https://baike.baidu.com/item/HTML/97049?fr=aladdin)/[JavaScript](https://baike.baidu.com/item/javascript)/[Vue.js](https://cn.vuejs.org/)/[PyTorch](https://pytorch.org/)
 
 预计后续还会更新 **快速入门**
 [CSS](https://baike.baidu.com/item/CSS/5457)
@@ -35,6 +35,12 @@ v-model、computed、methods、watch、filter。
 组件、自定义指令。
 * [CRUDExample.html](https://github.com/zhangyixing1007/easyStart/blob/master/Vuejs/CRUEExample.html):
 路由、fetch、axios、Ajax、CRUD。
+
+## [PyTorch](https://github.com/zhangyixing1007/easyStart/tree/master/PyTorch)
+* [test_nn.py](https://github.com/zhangyixing1007/easyStart/blob/master/PyTorch/test_nn.py):
+如何搭建神经网络？
+* [test_torchvision.py](https://github.com/zhangyixing1007/easyStart/blob/master/PyTorch/test_torchvision.py):
+一个使用torchvision data CIFAR10的实例
 
 预计后续还会更新 **快速入门**
 [CSS](https://baike.baidu.com/item/CSS/5457)
