@@ -9,7 +9,8 @@
    
   <button v-on:click="toggle">切换隐藏显示</button>
   <div v-if="show"> 默认这一条是看得见的</div>
-     
+<br>
+     如果修改Vue函数，把show的默认值改成false，上面这一条就默认不可见了。
 </div>
     
 <script>
@@ -35,21 +36,23 @@ new Vue({
    
 <div id="div2">
    
-  <button v-on:click="moyiba"> 抽500w大奖 </button>
+  <button v-on:click="lottery"> 抽500w大奖 </button>
   <div v-if="show"> 中了500万！</div>
   <div v-else>谢谢惠顾！</div> 
      
 </div>
     
+<br> v-if中的变量好像是默认false的，只有点击才会更新值。
+
 <script>
     
 new Vue({
       el: '#div2',
       data: {
-          show:false
+          show:''
       },
       methods:{
-          moyiba: function(){
+          lottery: function(){
              this.show=Math.random()<0.1
           }
       }
@@ -78,13 +81,15 @@ new Vue({
   <div v-else> 流浪汉</div>
      
 </div>
+
+<br>如果一个变量不赋值，那么什么值都有可能，所有的值将会统一显示出来。
     
 <script>
     
 new Vue({
       el: '#div3',
       data: {
-          number:0
+          number:76
       },
       methods:{
           toutai: function(){
@@ -136,7 +141,7 @@ tr.firstLine{
     
 <script>
   
-var data = [
+var musicData = [
           {album:"Lose Control",time:20161028},
           {album:"Sheep",time:20171007},
           {album:"NAMANANA",time:20181019},
@@ -145,7 +150,7 @@ var data = [
 new Vue({
       el: '#zyx1',
       data: {
-          albums:data
+          albums:musicData
       }
     })
     
@@ -193,7 +198,7 @@ tr.firstLine{
     
 <script>
   
-var data = [
+var musicData = [
           {album:"Lose Control",time:20161028},
           {album:"Sheep",time:20171007},
           {album:"NAMANANA",time:20181019},
@@ -202,7 +207,7 @@ var data = [
 new Vue({
       el: '#zyx2',
       data: {
-          albums:data
+          albums:musicData
       }
     })
     
@@ -236,12 +241,13 @@ new Vue({
 <h2>v-bind 属性绑定</h2>
 <script src="https://how2j.cn/study/vue.min.js"></script>
    
+
 <div id="eg2">
     <a v-bind:href="page">zhangyixing1007 GitHub</a>
 </div>
     
+
 <script>
-  
 new Vue({
       el: '#eg2',
       data:{
@@ -594,7 +600,7 @@ tr.firstLine{
         </tr>      
         <tr>
             <td>
-                v-model type限定 只能输入数字 储存为字符串
+                v-model type限定 只能输入数字 储存为字符串string
             </td>
             <td>
                 <input v-model="input1" type="number" placeholder="输入数据">
@@ -608,7 +614,7 @@ tr.firstLine{
         </tr>
         <tr>
             <td>
-                v-model-number type限定 只能输入数字 储存为数字
+                v-model-number type限定 只能输入数字 储存为数字number
             </td>
             <td>
                 <input v-model.number="input2"   type="number"  placeholder="输入数据">
@@ -623,7 +629,9 @@ tr.firstLine{
     </table>
    
 </div>
+注：上述第二行，数值类型是string，因为是空字符串''。
       
+
 <script>
     
 new Vue({
