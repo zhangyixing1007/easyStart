@@ -9,7 +9,7 @@ JSON对象由 名称/值对组成 名称和值之间用冒号:隔开。<br>
 <br><br>
 
 <script>
-var gareen = {"name":"盖伦","hp":616};
+var gareen = {"name":"盖伦","hp":"616"};
   
 document.write("这是一个JSON对象: "+gareen);
  
@@ -36,9 +36,12 @@ document.write( "第4个英雄是:" +  heros[3].name);
 <br><br>
 
 
+
+
 <h2>字符串转为JSON对象</h2>
 通过字符串拼接得到一个JSON结构的字符串，并不是一个JSON对象。 需要通过eval转换得到。
-转换的时候注意,eval 函数的参数要以（ 开头，）结尾。
+转换的时候注意,eval 函数的参数要以"(" 开头，")"结尾。
+<br>
 <script>
  
 var s1 = "{\"name\":\"盖伦\"";
@@ -59,9 +62,12 @@ document.write("这是一个json 字符串："+ heroString );
 <br><br>
 
 
+
+
+
 <h2>js vs Vue.js</h2>
 <h3>js </h3>
-<div id="div1">
+<div id="zyx">
    
 </div>
   
@@ -71,7 +77,7 @@ document.write("这是一个json 字符串："+ heroString );
 var gareen = {"name":"盖伦","hp":616};
  
 //获取 html dom
-var div1 = document.getElementById("div1");
+var div1 = document.getElementById("zyx");
  
 //显示数据
 div1.innerHTML= gareen.name;
@@ -111,7 +117,7 @@ new Vue({
 
 
 <script>
-var gareen = {"name":"盖伦","hp":616};
+//var gareen = {"name":"盖伦","hp":616};
  
 document.write("英雄名称: " + gareen.name + "<br>");
 document.write("英雄血量: " + gareen.hp + "<br>");
@@ -220,7 +226,6 @@ new Vue({
             </div>
         </div>
     </div>
- 
 </div>
    
 <script>
@@ -539,23 +544,23 @@ new Vue({
  
 <div id="div6">
    
-  <a href="http://www.12306.cn" @click="jump" >正常的链接</a>
+  <a href="https://github.com/zhangyixing1007" @click="jump" >正常的链接</a>
   <br>
 
-  <a href="http://www.12306.cn" @click.prevent="jump" >prevent jump()之后的链接 </a>
+  <a href="https://github.com/zhangyixing1007" @click.prevent="jump" >prevent jump()之后的链接 </a>
   <br>
 
-  <a href="http://www.12306.cn" @click.prevent >纯prevent之后的链接 </a>
+  <a href="https://github.com/zhangyixing1007" @click.prevent >纯prevent之后的链接 </a>
    
   <br>
   <br>
-  <form @submit="jump" action="http://www.12306.cn">
+  <form @submit="jump" action="https://github.com/zhangyixing1007">
     <button type="submit">正常的form</button>
   </form>
-  <form @submit.prevent="jump" action="http://www.12306.cn">
+  <form @submit.prevent="jump" action="https://github.com/zhangyixing1007">
     <button type="submit">prevent jump()之后的form</button>
   </form>
-  <form @submit.prevent action="http://www.12306.cn">
+  <form @submit.prevent action="https://github.com/zhangyixing1007">
     <button type="submit">纯prevent之后的form</button>
   </form>
    
@@ -575,7 +580,3 @@ new Vue({
     })
     
 </script>
-
-
-
-
