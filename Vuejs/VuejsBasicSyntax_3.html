@@ -11,8 +11,7 @@
 <style>
 table tr td{
     border:1px solid gray;
-    padding:10px;
-      
+    padding:10px;    
 }
 table{
     border-collapse:collapse;
@@ -24,6 +23,7 @@ tr.firstLine{
 }
 </style>
    
+直接计算，调用的是变量而不是函数。
 <div id="div1">
      
     <table align="center" >
@@ -196,8 +196,10 @@ new Vue({
     })
       
 </script>
+computed vs methods:<br>
 computed 是有缓存的，只要rmb没有变化，dollar 会直接返回以前计算出来的值，而不会再次计算。 这样如果是复杂计算，就会节约不少时间。
 而methods每次都会调用。
+<br><br>
 
 
 
@@ -432,7 +434,7 @@ tr.firstLine{
                 <input v-model= "data"  />
             </td>
             <td align="center">
-                {{ data|capitalize|capitalizeLastLetter }}
+                {{ data|capitalize2|capitalizeLastLetter2 }}
             </td>
         </tr>
     </table>
@@ -440,13 +442,13 @@ tr.firstLine{
 </div>
       
 <script>
-Vue.filter('capitalize', function (value) {
+Vue.filter('capitalize2', function (value) {
     if (!value) return ''
     value = value.toString()
     return value.charAt(0).toUpperCase() + value.slice(1)
 })
      
-Vue.filter('capitalizeLastLetter', function (value) {
+Vue.filter('capitalizeLastLetter2', function (value) {
     if (!value) return '' //如果为空，则返回空字符串
     value = value.toString()
     return value.substring(0,value.length-1)+ value.charAt(value.length-1).toUpperCase()
@@ -460,4 +462,3 @@ new Vue({
     })
       
 </script>
-
