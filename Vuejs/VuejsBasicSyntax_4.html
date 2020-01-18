@@ -9,7 +9,7 @@
 <script src="https://how2j.cn/study/vue.min.js"></script>
  
 <style>
-div.product{
+div.p{
   float:left;
   border:1px solid lightGray;
   width:200px;
@@ -26,13 +26,14 @@ div.product{
   
 <script>
 Vue.component('product', {
-      template: '<div class="product" >一出好戏</div>'
+      template: '<div class="p" >一出好戏</div>'
     })
  
 new Vue({
   el: '#div1'
 })
 </script>
+<br><br>
 <br><br>
 
 
@@ -53,15 +54,15 @@ div.product{
 </style>
  
 <div id="TV">
-    <product name="老九门"></product>
+    <product name="老九门" desp='A'></product>
     <product name="黄金瞳"></product>
     <product name="一出好戏"></product>
 </div>
   
 <script>
 Vue.component('product', {
-      props:['name'],
-      template: '<div class="product" >{{name}}</div>'
+      props:['name','desp'],
+      template: '<div class="product" >{{name}},  {{desp}}</div>'
     })
  
 new Vue({
@@ -69,6 +70,8 @@ new Vue({
 })
 </script>
 <br><br>
+<br><br>
+
 
 
 
@@ -87,8 +90,8 @@ div.product{
 </style>
  
 <div id="try">
-    组件外的值：<input v-model="outName" ><br>
-    <product v-bind:name="outName"></product>
+    组件外的值：<input v-model="out" ><br>
+    <product v-bind:name="out"></product>
 </div>
   
 <script>
@@ -100,11 +103,13 @@ Vue.component('product', {
 new Vue({
   el: '#try',
   data:{
-      outName:'产品名称'
+      out:'产品名称'
   }
 })
 </script>
 <br><br>
+<br><br>
+
 
 
 
@@ -145,6 +150,8 @@ new Vue({
 })
 </script>
 <br><br><br>
+<br><br>
+<br><br>
 
 
 
@@ -191,6 +198,8 @@ new Vue({
 })
 </script>
 <br><br><br>
+<br><br>
+<br><br>
 
 
 
@@ -289,6 +298,10 @@ new Vue({
 <br><br><br>
 <br><br><br>
 <br><br><br>
+<br><br>
+<br><br>
+<br><br>
+
 
 
 
@@ -380,7 +393,21 @@ Vue.directive('xart', {
 new Vue({
   el: '#recall',
   data:{
-      message:'hello vue.js'
+      try:'trytrytry',
+      message:'I am message in the data',
   }
 })
 </script>
+
+
+以bind为例，可以传递主要是用到binding里的属性
+<ul>
+<li>name：指令名，不包括 v- 前缀。
+<li>value：指令的绑定值，本例就是hello vue.js
+<li>oldValue：指令绑定的前一个值，仅在 update 和 componentUpdated 钩子中可用。无论值是否改变都可用。
+<li>expression：字符串形式的指令表达式。本例就是 message
+<li>arg：传给指令的参数，本例就是hello
+<li>modifiers：一个包含修饰符的对象。本例就是 .a .b
+这样拿到这些自定义指令的各项参数，那么在函数体里就方便做各种自定义功能了
+<li>vnode是虚拟节点，里面具体什么意思，我也不太懂。。。好像也用不到，pass 吧~
+</ul>
